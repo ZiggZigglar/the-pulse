@@ -1,0 +1,67 @@
+{
+  "entries": [
+    {
+      "date": "2026-08-21",
+      "slug": "charter-cox-merger-closes",
+      "url": "https://www.telecompetitor.com/charter-and-cox-complete-merger/",
+      "headline": "Charter and Cox close the merger, and Spectrum is now everywhere",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "tmobile-salt-typhoon-cable-cut",
+      "url": "https://techcrunch.com/2026/08/19/t-mobile-chopped-a-cable-to-expel-chinese-hackers-from-its-network/",
+      "headline": "T-Mobile physically cut a cable to kick Chinese hackers off its network",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "sparklight-unified-communications",
+      "url": "https://www.telecompetitor.com/sparklight-business-announces-unified-cloud-platform/",
+      "headline": "Sparklight jumps into UCaaS with its own unified comms platform",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "agentforce-partner-revenue",
+      "url": "https://www.theregister.com/saas/2026/08/21/salesforce_partners_not_seeing_meaningful_revenue_from_agentforce_ai_platform_report_says/5291167",
+      "headline": "Salesforce partners still aren't making money off Agentforce",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "optimum-advanced-security",
+      "url": "https://www.telecompetitor.com/americans-will-pay-for-additional-security-and-optimum-is-planning-on-it/",
+      "headline": "Optimum bets 5 dollars a month buys customer loyalty",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "krisp-8x8-partner-ecosystem",
+      "url": "https://finance.yahoo.com/technology/ai/articles/krisp-joins-8x8-technology-partner-130000294.html",
+      "headline": "8x8 bolts Krisp's noise cancelling AI onto Work and Contact Center",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "pilot-fiber-extenet-acquisition",
+      "url": "https://www.telecompetitor.com/pilot-fiber-completes-acquisition-of-extenet-systems-enterprise-fiber-business/",
+      "headline": "Pilot Fiber completes acquisition of Extenet Systems' enterprise fiber business",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "usf-modernization-task-force",
+      "url": "https://www.telecompetitor.com/task-force-asks-congress-to-modernize-usf-keep-its-funding-structure/",
+      "headline": "Task force asks Congress to modernize USF, keep its funding structure",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "spacex-ast-spectrum-bid",
+      "url": "https://www.telecompetitor.com/spacex-and-ast-spacemobile-eye-6b-in-satellite-spectrum-bloomberg/",
+      "headline": "SpaceX and AST SpaceMobile eye 6B in satellite spectrum",
+      "tier": "noted"
+    }
+  ]
+}

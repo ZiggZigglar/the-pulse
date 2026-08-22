@@ -3,15 +3,365 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Pulse</title>
+<title>The Pulse: Aug 21, 2026</title>
 <style>
-body{background:#0b0d10;color:#e6e9ef;font:14px/1.5 system-ui,sans-serif;margin:0;padding:48px 20px;text-align:center}
-h1{color:#f0a04b;font-size:26px;margin:0 0 8px}
-p{color:#8b95a3;margin:0}
+:root{
+  --bg:#0b0d10; --card:#12151a; --border:#1e232b;
+  --text:#e6e9ef; --muted:#8b95a3; --amber:#f0a04b;
+  --telecom:#4f8fe0; --ai:#b47cf2; --security:#ef5b5b;
+  --channel:#4fbf6b; --regulatory:#e0c65a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
+body{
+  font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-text-size-adjust:100%;
+  font-variant-numeric:tabular-nums;
+}
+a,button{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:no-preference){
+  .pill,.star,.sources a,ul.noted a{transition:color .15s ease,background-color .15s ease,border-color .15s ease}
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px 48px}
+header{padding:20px 0 12px}
+h1.title{font-size:26px;font-weight:800;margin:0 0 6px;letter-spacing:-0.02em}
+h1.title .amber{color:var(--amber)}
+.meta{color:var(--muted);font-size:12.5px;display:flex;flex-wrap:wrap;gap:6px 10px}
+.meta span::after{content:"·";margin-left:10px;color:var(--border)}
+.meta span:last-child::after{content:""}
+nav.pills{
+  position:sticky;top:0;z-index:10;background:var(--bg);
+  display:flex;gap:8px;padding:12px 0;margin-bottom:8px;
+  border-bottom:1px solid var(--border);overflow-x:auto;
+}
+.pill{
+  appearance:none;border:1px solid var(--border);background:var(--card);
+  color:var(--muted);border-radius:999px;padding:9px 14px;font-size:13px;
+  font-weight:600;min-height:44px;display:flex;align-items:center;gap:6px;
+  white-space:nowrap;flex-shrink:0;
+}
+.pill .n{color:var(--muted);font-weight:500;font-size:12px}
+.pill.active{border-color:var(--amber);color:var(--amber)}
+.pill.active .n{color:var(--amber)}
+section{margin-top:22px}
+section h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 12px;font-weight:700}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:16px;margin-bottom:14px;
+}
+.card.hidden{display:none}
+.cardtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.tag{
+  text-transform:uppercase;font-size:10.5px;letter-spacing:.07em;font-weight:800;
+  padding:3px 8px;border-radius:5px;
+}
+.tag-telecom{color:var(--telecom);background:rgba(79,143,224,0.16)}
+.tag-ai{color:var(--ai);background:rgba(180,124,242,0.16)}
+.tag-security{color:var(--security);background:rgba(239,91,91,0.16)}
+.tag-channel{color:var(--channel);background:rgba(79,191,107,0.16)}
+.tag-regulatory{color:var(--regulatory);background:rgba(224,198,90,0.16)}
+.star{
+  appearance:none;background:none;border:none;color:var(--muted);font-size:20px;
+  cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  margin:-10px -8px -10px 0;
+}
+.star.saved{color:var(--amber)}
+h3.headline{font-size:17px;line-height:1.35;margin:0 0 6px;font-weight:700}
+.publine{color:var(--muted);font-size:12px;margin-bottom:10px}
+p.body{margin:0 0 12px;color:var(--text)}
+.commentary{border-left:2px solid var(--amber);padding:2px 0 2px 12px;margin:12px 0}
+.commentary .label{
+  display:block;text-transform:uppercase;font-size:10.5px;letter-spacing:.08em;
+  color:var(--amber);font-weight:800;margin-bottom:4px;
+}
+.commentary p{margin:0;color:var(--text)}
+.sources{margin-top:12px}
+.sources a{color:var(--amber);text-decoration:none;font-size:13px;font-weight:600}
+.sources a:hover{text-decoration:underline}
+ul.noted{list-style:none;margin:0;padding:0}
+ul.noted li{
+  border-bottom:1px solid var(--border);padding:12px 0;font-size:13.5px;
+}
+ul.noted li:last-child{border-bottom:none}
+ul.noted a{color:var(--text);text-decoration:none}
+ul.noted a:hover{color:var(--amber)}
+ul.noted .src{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}
+.empty{color:var(--muted);text-align:center;padding:30px 0;font-size:13px}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center}
 </style>
 </head>
 <body>
-<h1>The Pulse</h1>
-<p>Standing by. First brief lands soon.</p>
+<div class="wrap">
+
+<header>
+  <h1 class="title">The <span class="amber">Pulse</span></h1>
+  <div class="meta">
+    <span id="meta-date">Friday, August 21, 2026</span>
+    <span id="meta-count"></span>
+    <span id="meta-read"></span>
+  </div>
+</header>
+
+<nav class="pills" id="pills">
+  <button class="pill active" data-filter="all">All <span class="n" id="n-all"></span></button>
+  <button class="pill" data-filter="telecom">Telecom <span class="n" id="n-telecom"></span></button>
+  <button class="pill" data-filter="ai">AI <span class="n" id="n-ai"></span></button>
+  <button class="pill" data-filter="saved">Saved <span class="n" id="n-saved"></span></button>
+</nav>
+
+<section id="deep-dives">
+  <h2>Read these two</h2>
+
+  <article class="card" data-id="charter-cox" data-tags="telecom">
+    <div class="cardtop">
+      <span class="tag tag-telecom">Telecom</span>
+      <button class="star" data-id="charter-cox" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">Charter and Cox close the merger, and Spectrum is now everywhere</h3>
+    <div class="publine">Telecompetitor &middot; Aug 20, 2026</div>
+    <p class="body">Charter Communications completed its acquisition of Cox Communications and Liberty Broadband on August 20, closing a deal that had been in motion for months and creating the largest broadband and video provider in the country, operating in 45 states under the Spectrum brand. Cox Enterprises walked away with about 33.6 million Charter common units worth roughly 5 billion dollars, 6 billion in convertible preferred units, and 4 billion in cash, leaving it with about 26 percent of the combined company on a fully diluted basis and a board seat for Cox chairman Alex Taylor, now Charter's chairman too. Liberty Broadband shareholders got 0.236 Charter shares per share held. Cox brings about 12 billion in debt into the deal. Charter is sweetening the transition with a year of free Spectrum Mobile service for former Cox internet customers, same day tech dispatch, and a floor of 20 dollars an hour for frontline workers.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>This is the cable bundle you have been losing deals to, now bigger and in more zip codes. Forty five states under one brand means fewer places where "we already have internet, TV, and phone from the cable guy" is not the first objection in the room. The free year of Spectrum Mobile is a loyalty hook, not a gift. It trains customers to think in single bills right when you need them thinking best of breed. Know your overlap map before the next Cox or Spectrum call.</p>
+    </div>
+    <div class="sources"><a href="https://www.telecompetitor.com/charter-and-cox-complete-merger/" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+
+  <article class="card" data-id="salt-typhoon" data-tags="security">
+    <div class="cardtop">
+      <span class="tag tag-security">Security</span>
+      <button class="star" data-id="salt-typhoon" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">T-Mobile physically cut a cable to kick Chinese hackers off its network</h3>
+    <div class="publine">TechCrunch &middot; Aug 19, 2026</div>
+    <p class="body">T-Mobile's cybersecurity team caught Chinese state hackers inside its network in 2024 and cut them off before any meaningful data left the building, chief security officer Jeff Simon disclosed publicly on August 18. The Salt Typhoon campaign had already compromised AT&amp;T, Verizon, Viasat, Charter, and Windstream, hunting for call records and metadata tied to government officials. T-Mobile traced anomalous traffic to a compromised router at another, unnamed telecom company connected to its network, a trusted third party link the attackers used to get in without touching T-Mobile's own perimeter. Simon and three colleagues drove to a data center near Bellevue, Washington, found the compromised gear, and severed its external connection with a pair of scissors rather than wait on a software fix. T-Mobile declined to comment further when TechCrunch asked for detail.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Nearly every major carrier your prospects route calls through has had a nation state actor inside it in the last two years. That is not a talking point you invent, it is public record now. Any competitor leaning on "our network is more secure" just lost that line, because Salt Typhoon did not spare anyone based on size or spend. The question worth asking in a deal review is not whether a carrier got hit, it is how fast they noticed.</p>
+    </div>
+    <div class="sources"><a href="https://techcrunch.com/2026/08/19/t-mobile-chopped-a-cable-to-expel-chinese-hackers-from-its-network/" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+</section>
+
+<section id="skims">
+  <h2>Worth knowing</h2>
+
+  <article class="card" data-id="sparklight-uc" data-tags="telecom">
+    <div class="cardtop">
+      <span class="tag tag-telecom">Telecom</span>
+      <button class="star" data-id="sparklight-uc" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">Sparklight jumps into UCaaS with its own unified comms platform</h3>
+    <div class="publine">Telecompetitor &middot; Aug 20, 2026</div>
+    <p class="body">Cable One's Sparklight Business unit launched Sparklight Unified Communications on August 20, a cloud platform bundling business calling, SMS, video meetings, and collaboration tools with desktop and mobile apps, private number masking, and multi location support. It follows Sparklight's 2025 mobile launch and continues the company's push to sell more than a pipe to its business customers.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>One more regional cable operator decided reselling somebody else's UCaaS was leaving money on the table and built its own instead. Check whether Sparklight's footprint touches your territory before you assume this is somebody else's problem.</p>
+    </div>
+    <div class="sources"><a href="https://www.telecompetitor.com/sparklight-business-announces-unified-cloud-platform/" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+
+  <article class="card" data-id="agentforce-revenue" data-tags="ai">
+    <div class="cardtop">
+      <span class="tag tag-ai">AI</span>
+      <button class="star" data-id="agentforce-revenue" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">Salesforce partners still aren't making money off Agentforce</h3>
+    <div class="publine">The Register &middot; Aug 21, 2026</div>
+    <p class="body">A TD Cowen survey of Salesforce partners found zero of them reporting that Agentforce is driving new bookings, with only a third hitting sales targets, down from 43 percent in the prior survey. Eleven percent said interest is minimal, 56 percent expect a long road to maturity. Marc Benioff maintains Agentforce has passed 1 billion dollars in annual recurring revenue.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Keep this in your pocket for the next prospect who says they are going all in on agentic AI and do not need a better call handling story this quarter. The company selling the agents cannot get its own partners to sell them either.</p>
+    </div>
+    <div class="sources"><a href="https://www.theregister.com/saas/2026/08/21/salesforce_partners_not_seeing_meaningful_revenue_from_agentforce_ai_platform_report_says/5291167" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+
+  <article class="card" data-id="optimum-security" data-tags="telecom">
+    <div class="cardtop">
+      <span class="tag tag-telecom">Telecom</span>
+      <button class="star" data-id="optimum-security" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">Optimum bets 5 dollars a month buys customer loyalty</h3>
+    <div class="publine">Telecompetitor &middot; Aug 21, 2026</div>
+    <p class="body">Optimum is rolling out Advanced Security, a 5 dollar a month add on with parental controls, device protection, and up to five household profiles, citing survey data that 66 percent of Americans would pay more for better security on their home network. It follows a spring fiber tier with a five year price lock.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Small add on, same old playbook. Every extra monthly line item a cable operator gets a customer used to paying is one more reason switching the whole bundle feels like more hassle than it is worth.</p>
+    </div>
+    <div class="sources"><a href="https://www.telecompetitor.com/americans-will-pay-for-additional-security-and-optimum-is-planning-on-it/" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+
+  <article class="card" data-id="krisp-8x8" data-tags="ai">
+    <div class="cardtop">
+      <span class="tag tag-ai">AI</span>
+      <button class="star" data-id="krisp-8x8" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">8x8 bolts Krisp's noise cancelling AI onto Work and Contact Center</h3>
+    <div class="publine">Business Wire &middot; Aug 20, 2026</div>
+    <p class="body">Krisp, a voice AI vendor, joined the 8x8 Technology Partner Ecosystem, bringing real time noise cancellation, voice isolation, accent conversion, and support for more than 60 languages to 8x8 Work and 8x8 Contact Center, with cleaner audio feeding transcripts, summaries, and sentiment scoring.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Noisy home offices wreck call quality and the AI features built on top of it. This is a small feature, but it is exactly the kind of thing that wins a side by side demo when a prospect is testing call clarity on both platforms.</p>
+    </div>
+    <div class="sources"><a href="https://finance.yahoo.com/technology/ai/articles/krisp-joins-8x8-technology-partner-130000294.html" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+</section>
+
+<section id="also-noted">
+  <h2>Also noted</h2>
+  <ul class="noted">
+    <li>
+      <a href="https://www.telecompetitor.com/pilot-fiber-completes-acquisition-of-extenet-systems-enterprise-fiber-business/" target="_blank" rel="noopener">Pilot Fiber completed its acquisition of Extenet Systems' enterprise fiber business, picking up about 200 enterprise and carrier customers and 20-plus data centers.</a>
+      <span class="src">Telecompetitor &middot; Aug 20, 2026</span>
+    </li>
+    <li>
+      <a href="https://www.telecompetitor.com/task-force-asks-congress-to-modernize-usf-keep-its-funding-structure/" target="_blank" rel="noopener">A task force led by former FCC commissioners Mignon Clyburn and Rachelle Chong urged Congress to modernize the Universal Service Fund while keeping its industry funded structure intact.</a>
+      <span class="src">Telecompetitor &middot; Aug 21, 2026</span>
+    </li>
+    <li>
+      <a href="https://www.telecompetitor.com/spacex-and-ast-spacemobile-eye-6b-in-satellite-spectrum-bloomberg/" target="_blank" rel="noopener">SpaceX and AST SpaceMobile are among the bidders for about 6 billion dollars in 800 MHz spectrum that could support satellite to phone voice service, with bids due in September.</a>
+      <span class="src">Telecompetitor, via Bloomberg &middot; Aug 21, 2026</span>
+    </li>
+  </ul>
+</section>
+
+<footer>Dale's read. Built before your alarm went off.</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "pulse-saved";
+
+  function loadSaved(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return [];
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    }catch(e){ return []; }
+  }
+  function saveSaved(arr){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }catch(e){}
+  }
+
+  var saved = loadSaved();
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+
+  function isSaved(id){ return saved.indexOf(id) !== -1; }
+
+  function applyStarStates(){
+    cards.forEach(function(card){
+      var id = card.getAttribute("data-id");
+      var btn = card.querySelector(".star");
+      if(!btn) return;
+      if(isSaved(id)){
+        btn.classList.add("saved");
+        btn.innerHTML = "&#9733;";
+      } else {
+        btn.classList.remove("saved");
+        btn.innerHTML = "&#9734;";
+      }
+    });
+  }
+
+  document.querySelectorAll(".star").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var id = btn.getAttribute("data-id");
+      var idx = saved.indexOf(id);
+      if(idx === -1){ saved.push(id); } else { saved.splice(idx,1); }
+      saveSaved(saved);
+      applyStarStates();
+      updateCounts();
+      applyFilter(currentFilter);
+    });
+  });
+
+  var TELECOM_TAGS = ["telecom","channel","regulatory","security"];
+  var currentFilter = "all";
+
+  function cardMatches(card, filter){
+    var tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+    var id = card.getAttribute("data-id");
+    if(filter === "all") return true;
+    if(filter === "ai") return tags.indexOf("ai") !== -1;
+    if(filter === "telecom") return tags.some(function(t){ return TELECOM_TAGS.indexOf(t) !== -1; });
+    if(filter === "saved") return isSaved(id);
+    return true;
+  }
+
+  function applyFilter(filter){
+    currentFilter = filter;
+    var anyVisible = false;
+    cards.forEach(function(card){
+      var match = cardMatches(card, filter);
+      card.classList.toggle("hidden", !match);
+      if(match) anyVisible = true;
+    });
+    ["deep-dives","skims"].forEach(function(secId){
+      var sec = document.getElementById(secId);
+      var visibleCards = sec.querySelectorAll(".card:not(.hidden)").length;
+      sec.style.display = visibleCards > 0 ? "" : "none";
+    });
+    var emptyNote = document.getElementById("empty-note");
+    if(!anyVisible){
+      if(!emptyNote){
+        emptyNote = document.createElement("div");
+        emptyNote.id = "empty-note";
+        emptyNote.className = "empty";
+        emptyNote.textContent = "Nothing saved yet. Tap the star on a card to keep it.";
+        document.getElementById("pills").insertAdjacentElement("afterend", emptyNote);
+      }
+      emptyNote.style.display = "";
+    } else if(emptyNote){
+      emptyNote.style.display = "none";
+    }
+  }
+
+  function updateCounts(){
+    var counts = { all: cards.length, telecom: 0, ai: 0, saved: 0 };
+    cards.forEach(function(card){
+      var tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+      var id = card.getAttribute("data-id");
+      if(tags.some(function(t){ return TELECOM_TAGS.indexOf(t) !== -1; })) counts.telecom++;
+      if(tags.indexOf("ai") !== -1) counts.ai++;
+      if(isSaved(id)) counts.saved++;
+    });
+    document.getElementById("n-all").textContent = counts.all;
+    document.getElementById("n-telecom").textContent = counts.telecom;
+    document.getElementById("n-ai").textContent = counts.ai;
+    document.getElementById("n-saved").textContent = counts.saved;
+  }
+
+  document.querySelectorAll(".pill").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".pill").forEach(function(p){ p.classList.remove("active"); });
+      btn.classList.add("active");
+      applyFilter(btn.getAttribute("data-filter"));
+    });
+  });
+
+  function computeReadTime(){
+    var words = 0;
+    document.querySelectorAll(".body, .commentary p, .headline, ul.noted a").forEach(function(el){
+      var t = el.textContent || "";
+      words += t.trim().split(/\s+/).filter(Boolean).length;
+    });
+    var mins = Math.max(1, Math.ceil(words / 200));
+    document.getElementById("meta-read").textContent = mins + " min read";
+  }
+
+  function init(){
+    applyStarStates();
+    updateCounts();
+    document.getElementById("meta-count").textContent = cards.length + " stories";
+    computeReadTime();
+    applyFilter("all");
+  }
+
+  init();
+})();
+</script>
 </body>
 </html>
