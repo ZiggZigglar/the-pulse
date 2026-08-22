@@ -62,6 +62,62 @@
       "url": "https://www.telecompetitor.com/spacex-and-ast-spacemobile-eye-6b-in-satellite-spectrum-bloomberg/",
       "headline": "SpaceX and AST SpaceMobile eye 6B in satellite spectrum",
       "tier": "noted"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "tpx-bankruptcy-auction-cancelled",
+      "url": "https://www.channeldive.com/news/tpx-cancels-bankruptcy-auction-with-no-qualified-bids/827952/",
+      "headline": "TPx cancels its bankruptcy auction after nobody wanted to buy it",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "ringcentral-shinyhunters-breach-dump",
+      "url": "https://www.theregister.com/cyber-crime/2026/08/14/16m-ringcentral-accounts-data-dumped-after-shinyhunters-extortion-attack/5288003",
+      "headline": "RingCentral's breach data lands in Have I Been Pwned, 1.6 million records",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "scansource-microage-acquisition",
+      "url": "https://www.channeldive.com/news/scansource-to-buy-microage-mike-baur-220-million-convergence-ctpros/828442/",
+      "headline": "ScanSource buys MicroAge for 220.5 million",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "brinztech-sip-telephony-telegram",
+      "url": "https://www.brinztech.com/breach-alerts/brinztech-alert-threat-actor-offers-unauthorized-access-to-us-based-sip-telephony-infrastructure-on-telegram",
+      "headline": "Threat actor sells live access to a US business phone system on Telegram",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "salesforce-headless-360-mcp",
+      "url": "https://siliconangle.com/2026/08/19/salesforce-expands-headless-data-360-mcp-developers-can-bring-insights-agents/",
+      "headline": "Salesforce opens Agentforce's plumbing with Headless 360 MCP servers",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "vonage-ceo-transition",
+      "url": "https://www.stocktitan.net/news/ERIC/ericsson-announces-change-to-the-executive-e6yr2u259tgh.html",
+      "headline": "Ericsson's Vonage CEO handover completes as Heuveldop steps down",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "msp-acquisitions-surge-omdia",
+      "url": "https://www.channeldive.com/news/channel-acquistions-consolidation-managed-services-omdia/828297/",
+      "headline": "MSP acquisitions up 73 percent year over year in Q1 2026",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-22",
+      "slug": "ransomware-mid-market-black-kite",
+      "url": "https://www.channeldive.com/news/ransomware-mid-market-firms-black-kite/828302/",
+      "headline": "Ransomware disproportionately hits mid-market firms, per Black Kite",
+      "tier": "noted"
     }
   ]
 }
