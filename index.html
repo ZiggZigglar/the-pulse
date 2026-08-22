@@ -224,6 +224,8 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
   // saved = array of full card snapshots (not just IDs), so a starred card
   // keeps showing up in the Saved tab even after tomorrow's edition
   // replaces today's cards entirely.
+  var MAX_SAVED = 200;
+
   function loadSaved(){
     try{
       var raw = localStorage.getItem(STORAGE_KEY);
@@ -233,7 +235,18 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
     }catch(e){ return []; }
   }
   function persistSaved(){
-    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); }catch(e){}
+    try{
+      if(saved.length > MAX_SAVED){ saved = saved.slice(saved.length - MAX_SAVED); }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+    }catch(e){}
+  }
+  function formatSavedDate(ts){
+    if(!ts) return "";
+    try{
+      var d = new Date(ts);
+      var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      return "Saved " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+    }catch(e){ return ""; }
   }
 
   var saved = loadSaved();
@@ -261,7 +274,8 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
       publine: pubEl ? pubEl.textContent.trim() : "",
       body: bodyEl ? bodyEl.textContent.trim() : "",
       commentary: commEl ? commEl.textContent.trim() : "",
-      sourceHref: linkEl ? linkEl.getAttribute("href") : ""
+      sourceHref: linkEl ? linkEl.getAttribute("href") : "",
+      savedAt: Date.now()
     };
   }
 
@@ -341,10 +355,14 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
       h.textContent = item.headline;
       art.appendChild(h);
 
-      if(item.publine){
+      var publineParts = [];
+      if(item.publine) publineParts.push(item.publine);
+      var savedLabel = formatSavedDate(item.savedAt);
+      if(savedLabel) publineParts.push(savedLabel);
+      if(publineParts.length){
         var pub = document.createElement("div");
         pub.className = "publine";
-        pub.textContent = item.publine;
+        pub.textContent = publineParts.join(" · ");
         art.appendChild(pub);
       }
 
