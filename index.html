@@ -211,6 +211,8 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
   </ul>
 </section>
 
+<section id="saved-view" style="display:none"></section>
+
 <footer>Dale's read. Built before your alarm went off.</footer>
 </div>
 
@@ -219,22 +221,59 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
   "use strict";
   var STORAGE_KEY = "pulse-saved";
 
+  // saved = array of full card snapshots (not just IDs), so a starred card
+  // keeps showing up in the Saved tab even after tomorrow's edition
+  // replaces today's cards entirely.
   function loadSaved(){
     try{
       var raw = localStorage.getItem(STORAGE_KEY);
       if(!raw) return [];
       var parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? parsed : [];
+      return Array.isArray(parsed) ? parsed.filter(function(x){ return x && x.id; }) : [];
     }catch(e){ return []; }
   }
-  function saveSaved(arr){
-    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }catch(e){}
+  function persistSaved(){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); }catch(e){}
   }
 
   var saved = loadSaved();
   var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+  var savedViewEl = document.getElementById("saved-view");
 
-  function isSaved(id){ return saved.indexOf(id) !== -1; }
+  function findSavedIndex(id){
+    for(var i=0;i<saved.length;i++){ if(saved[i].id === id) return i; }
+    return -1;
+  }
+  function isSaved(id){ return findSavedIndex(id) !== -1; }
+
+  function snapshotFromCard(card){
+    var tagEl = card.querySelector(".tag");
+    var headEl = card.querySelector(".headline");
+    var pubEl = card.querySelector(".publine");
+    var bodyEl = card.querySelector(".body");
+    var commEl = card.querySelector(".commentary p");
+    var linkEl = card.querySelector(".sources a");
+    return {
+      id: card.getAttribute("data-id"),
+      tagClass: tagEl ? tagEl.className.replace("tag", "").trim() : "",
+      tagLabel: tagEl ? tagEl.textContent.trim() : "",
+      headline: headEl ? headEl.textContent.trim() : "",
+      publine: pubEl ? pubEl.textContent.trim() : "",
+      body: bodyEl ? bodyEl.textContent.trim() : "",
+      commentary: commEl ? commEl.textContent.trim() : "",
+      sourceHref: linkEl ? linkEl.getAttribute("href") : ""
+    };
+  }
+
+  function toggleSave(id, card){
+    var idx = findSavedIndex(id);
+    if(idx === -1){
+      if(card) saved.push(snapshotFromCard(card));
+    } else {
+      saved.splice(idx, 1);
+    }
+    persistSaved();
+  }
 
   function applyStarStates(){
     cards.forEach(function(card){
@@ -254,64 +293,142 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
   document.querySelectorAll(".star").forEach(function(btn){
     btn.addEventListener("click", function(){
       var id = btn.getAttribute("data-id");
-      var idx = saved.indexOf(id);
-      if(idx === -1){ saved.push(id); } else { saved.splice(idx,1); }
-      saveSaved(saved);
+      var card = btn.closest(".card");
+      toggleSave(id, card);
       applyStarStates();
       updateCounts();
       applyFilter(currentFilter);
     });
   });
 
+  function renderSavedView(){
+    savedViewEl.innerHTML = "";
+    if(saved.length === 0){
+      var empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "Nothing saved yet. Tap the star on a card to keep it.";
+      savedViewEl.appendChild(empty);
+      return;
+    }
+    saved.slice().reverse().forEach(function(item){
+      var art = document.createElement("article");
+      art.className = "card";
+      art.setAttribute("data-id", item.id);
+
+      var top = document.createElement("div");
+      top.className = "cardtop";
+
+      var tag = document.createElement("span");
+      tag.className = ("tag " + (item.tagClass || "")).trim();
+      tag.textContent = item.tagLabel || "";
+      top.appendChild(tag);
+
+      var star = document.createElement("button");
+      star.className = "star saved";
+      star.setAttribute("aria-label", "Remove from saved");
+      star.innerHTML = "&#9733;";
+      star.addEventListener("click", function(){
+        toggleSave(item.id, null);
+        applyStarStates();
+        updateCounts();
+        renderSavedView();
+      });
+      top.appendChild(star);
+      art.appendChild(top);
+
+      var h = document.createElement("h3");
+      h.className = "headline";
+      h.textContent = item.headline;
+      art.appendChild(h);
+
+      if(item.publine){
+        var pub = document.createElement("div");
+        pub.className = "publine";
+        pub.textContent = item.publine;
+        art.appendChild(pub);
+      }
+
+      var body = document.createElement("p");
+      body.className = "body";
+      body.textContent = item.body;
+      art.appendChild(body);
+
+      if(item.commentary){
+        var comm = document.createElement("div");
+        comm.className = "commentary";
+        var label = document.createElement("span");
+        label.className = "label";
+        label.textContent = "Dale's read";
+        var p = document.createElement("p");
+        p.textContent = item.commentary;
+        comm.appendChild(label);
+        comm.appendChild(p);
+        art.appendChild(comm);
+      }
+
+      if(item.sourceHref){
+        var src = document.createElement("div");
+        src.className = "sources";
+        var a = document.createElement("a");
+        a.href = item.sourceHref;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = "Read the source →";
+        src.appendChild(a);
+        art.appendChild(src);
+      }
+
+      savedViewEl.appendChild(art);
+    });
+  }
+
   var TELECOM_TAGS = ["telecom","channel","regulatory","security"];
   var currentFilter = "all";
+  var DAILY_SECTIONS = ["deep-dives","skims","also-noted"];
 
   function cardMatches(card, filter){
     var tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
-    var id = card.getAttribute("data-id");
     if(filter === "all") return true;
     if(filter === "ai") return tags.indexOf("ai") !== -1;
     if(filter === "telecom") return tags.some(function(t){ return TELECOM_TAGS.indexOf(t) !== -1; });
-    if(filter === "saved") return isSaved(id);
     return true;
   }
 
   function applyFilter(filter){
     currentFilter = filter;
-    var anyVisible = false;
+
+    if(filter === "saved"){
+      DAILY_SECTIONS.forEach(function(id){
+        var sec = document.getElementById(id);
+        if(sec) sec.style.display = "none";
+      });
+      savedViewEl.style.display = "";
+      renderSavedView();
+      return;
+    }
+
+    DAILY_SECTIONS.forEach(function(id){
+      var sec = document.getElementById(id);
+      if(sec) sec.style.display = "";
+    });
+    savedViewEl.style.display = "none";
+
     cards.forEach(function(card){
-      var match = cardMatches(card, filter);
-      card.classList.toggle("hidden", !match);
-      if(match) anyVisible = true;
+      card.classList.toggle("hidden", !cardMatches(card, filter));
     });
     ["deep-dives","skims"].forEach(function(secId){
       var sec = document.getElementById(secId);
       var visibleCards = sec.querySelectorAll(".card:not(.hidden)").length;
       sec.style.display = visibleCards > 0 ? "" : "none";
     });
-    var emptyNote = document.getElementById("empty-note");
-    if(!anyVisible){
-      if(!emptyNote){
-        emptyNote = document.createElement("div");
-        emptyNote.id = "empty-note";
-        emptyNote.className = "empty";
-        emptyNote.textContent = "Nothing saved yet. Tap the star on a card to keep it.";
-        document.getElementById("pills").insertAdjacentElement("afterend", emptyNote);
-      }
-      emptyNote.style.display = "";
-    } else if(emptyNote){
-      emptyNote.style.display = "none";
-    }
   }
 
   function updateCounts(){
-    var counts = { all: cards.length, telecom: 0, ai: 0, saved: 0 };
+    var counts = { all: cards.length, telecom: 0, ai: 0, saved: saved.length };
     cards.forEach(function(card){
       var tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
-      var id = card.getAttribute("data-id");
       if(tags.some(function(t){ return TELECOM_TAGS.indexOf(t) !== -1; })) counts.telecom++;
       if(tags.indexOf("ai") !== -1) counts.ai++;
-      if(isSaved(id)) counts.saved++;
     });
     document.getElementById("n-all").textContent = counts.all;
     document.getElementById("n-telecom").textContent = counts.telecom;
