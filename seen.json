@@ -118,6 +118,97 @@
       "url": "https://www.channeldive.com/news/ransomware-mid-market-firms-black-kite/828302/",
       "headline": "Ransomware disproportionately hits mid-market firms, per Black Kite",
       "tier": "noted"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "zoom-webex-q2-earnings-divergence",
+      "url": "https://www.uctoday.com/zoom-guides-lower-for-q2-as-webex-posts-best-ever-quarter",
+      "headline": "Zoom guides down for Q2, Webex just had its best quarter in seven years",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "otter-ai-bipa-ruling",
+      "url": "https://www.uctoday.com/otter-ai-fails-to-dismiss-core-privacy-claims-in-u-s-court",
+      "headline": "Otter.ai loses its bid to dismiss the core claims over recording your meetings",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "copper-sunset-fcc-approvals",
+      "url": "https://broadbandbreakfast.com/isps-want-to-continue-to-discontinue-copper-service/",
+      "headline": "Copper sunset keeps accelerating, and the FCC keeps saying yes",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "gartner-ai-cx-roi-gap",
+      "url": "https://www.nojitter.com/customer-experience/untitled",
+      "headline": "Gartner: only one in four AI customer service deployments actually pays off",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "goto-cx-complete-bundle",
+      "url": "https://www.uctoday.com/goto-cx-complete-and-100-evaluation",
+      "headline": "GoTo folds contact center into UC as one AI-priced SMB bundle",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "telarus-back-office-overhaul",
+      "url": "https://www.channeldive.com/news/telarus-eases-back-office-processes-expands-software-integration-c3/828070/",
+      "headline": "Telarus rebuilds its back office and puts a number on the pain it fixed",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "modero-socium-ta-platform",
+      "url": "https://www.channeldive.com/news/modero-pitches-socium-tech-advisor-platform-built-tas/828202/",
+      "headline": "A TA-built platform wants to run other agencies' back offices too",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "hcltech-telecom-ai-gap",
+      "url": "https://rcrwireless.com/20260819/ai/hcltech-pulse-survey-telecom-ai",
+      "headline": "Telecom AI ambition is 35 points ahead of what carriers can actually ship",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "google-spirit-airlines-teams-data",
+      "url": "https://www.uctoday.com/google-buys-teams-data-what-if-your-company-folds",
+      "headline": "Google buys defunct Spirit Airlines' Microsoft Teams data archive",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "talktalk-aro-uk-merger",
+      "url": "https://www.theregister.com/channel/2026/08/14/talktalk-business-and-aro-to-borg-into-uk-tech-services-giant/5287825",
+      "headline": "TalkTalk Business and ARO merge into a UK tech services provider",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "paloalto-ntt-data-security-pact",
+      "url": "https://www.channeldive.com/news/palo-alto-networks-ntt-data-1-billion-security-partnership/828431/",
+      "headline": "Palo Alto Networks and NTT Data ink a 1 billion dollar security alliance",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "wispr-280m-raise",
+      "url": "https://www.uctoday.com/wispr-raises-280m-to-expand-voice-ai-beyond-dictation",
+      "headline": "Wispr raises 280 million to expand voice AI beyond dictation",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-23",
+      "slug": "stripe-openrouter-anthropic-decart",
+      "url": "https://www.cxtoday.com/crm/big-cx-news-from-salesforce-stripe-openai-anthropic/",
+      "headline": "Stripe reportedly buys OpenRouter, Anthropic reportedly in talks for Decart",
+      "tier": "noted"
     }
   ]
 }

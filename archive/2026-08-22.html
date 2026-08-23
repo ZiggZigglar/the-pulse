@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Pulse: Aug 22, 2026</title>
+<style>
+:root{
+  --bg:#0b0d10; --card:#12151a; --border:#1e232b;
+  --text:#e6e9ef; --muted:#8b95a3; --amber:#f0a04b;
+  --telecom:#4f8fe0; --ai:#b47cf2; --security:#ef5b5b;
+  --channel:#4fbf6b; --regulatory:#e0c65a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
+body{
+  font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-text-size-adjust:100%;
+  font-variant-numeric:tabular-nums;
+}
+a,button{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:no-preference){
+  .pill,.star,.sources a,ul.noted a{transition:color .15s ease,background-color .15s ease,border-color .15s ease}
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px 48px}
+header{padding:20px 0 12px}
+h1.title{font-size:26px;font-weight:800;margin:0 0 6px;letter-spacing:-0.02em}
+h1.title .amber{color:var(--amber)}
+.meta{color:var(--muted);font-size:12.5px;display:flex;flex-wrap:wrap;gap:6px 10px}
+.meta span::after{content:"·";margin-left:10px;color:var(--border)}
+.meta span:last-child::after{content:""}
+nav.pills{
+  position:sticky;top:0;z-index:10;background:var(--bg);
+  display:flex;gap:8px;padding:12px 0;margin-bottom:8px;
+  border-bottom:1px solid var(--border);overflow-x:auto;
+}
+.pill{
+  appearance:none;border:1px solid var(--border);background:var(--card);
+  color:var(--muted);border-radius:999px;padding:9px 14px;font-size:13px;
+  font-weight:600;min-height:44px;display:flex;align-items:center;gap:6px;
+  white-space:nowrap;flex-shrink:0;
+}
+.pill .n{color:var(--muted);font-weight:500;font-size:12px}
+.pill.active{border-color:var(--amber);color:var(--amber)}
+.pill.active .n{color:var(--amber)}
+section{margin-top:22px}
+section h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 12px;font-weight:700}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:16px;margin-bottom:14px;
+}
+.card.hidden{display:none}
+.cardtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.tag{
+  text-transform:uppercase;font-size:10.5px;letter-spacing:.07em;font-weight:800;
+  padding:3px 8px;border-radius:5px;
+}
+.tag-telecom{color:var(--telecom);background:rgba(79,143,224,0.16)}
+.tag-ai{color:var(--ai);background:rgba(180,124,242,0.16)}
+.tag-security{color:var(--security);background:rgba(239,91,91,0.16)}
+.tag-channel{color:var(--channel);background:rgba(79,191,107,0.16)}
+.tag-regulatory{color:var(--regulatory);background:rgba(224,198,90,0.16)}
+.star{
+  appearance:none;background:none;border:none;color:var(--muted);font-size:20px;
+  cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  margin:-10px -8px -10px 0;
+}
+.star.saved{color:var(--amber)}
+h3.headline{font-size:17px;line-height:1.35;margin:0 0 6px;font-weight:700}
+.publine{color:var(--muted);font-size:12px;margin-bottom:10px}
+p.body{margin:0 0 12px;color:var(--text)}
+.commentary{border-left:2px solid var(--amber);padding:2px 0 2px 12px;margin:12px 0}
+.commentary .label{
+  display:block;text-transform:uppercase;font-size:10.5px;letter-spacing:.08em;
+  color:var(--amber);font-weight:800;margin-bottom:4px;
+}
+.commentary p{margin:0;color:var(--text)}
+.sources{margin-top:12px}
+.sources a{color:var(--amber);text-decoration:none;font-size:13px;font-weight:600}
+.sources a:hover{text-decoration:underline}
+ul.noted{list-style:none;margin:0;padding:0}
+ul.noted li{
+  border-bottom:1px solid var(--border);padding:12px 0;font-size:13.5px;
+}
+ul.noted li:last-child{border-bottom:none}
+ul.noted a{color:var(--text);text-decoration:none}
+ul.noted a:hover{color:var(--amber)}
+ul.noted .src{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}
+.empty{color:var(--muted);text-align:center;padding:30px 0;font-size:13px}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1 class="title">The <span class="amber">Pulse</span></h1>
+  <div class="meta">
+    <span id="meta-date">Saturday, August 22, 2026</span>
+    <span id="meta-count"></span>
+    <span id="meta-read"></span>
+  </div>
+</header>
+
+<nav class="pills" id="pills">
+  <button class="pill active" data-filter="all">All <span class="n" id="n-all"></span></button>
+  <button class="pill" data-filter="telecom">Telecom <span class="n" id="n-telecom"></span></button>
+  <button class="pill" data-filter="ai">AI <span class="n" id="n-ai"></span></button>
+  <button class="pill" data-filter="saved">Saved <span class="n" id="n-saved"></span></button>
+</nav>
+
+<section id="deep-dives">
+  <h2>Read these two</h2>
+
+  <article class="card" data-id="tpx-auction-cancelled" data-tags="channel">
+    <div class="cardtop">
+      <span class="tag tag-channel">Channel</span>
+      <button class="star" data-id="tpx-auction-cancelled" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">TPx cancels its bankruptcy auction after nobody wanted to buy it</h3>
+    <div class="publine">Channel Dive &middot; Aug 13, 2026</div>
+    <p class="body">TPx Communications, an Austin-based managed IT, UCaaS, and cybersecurity provider, told the U.S. Bankruptcy Court for the Southern District of Texas on August 10 that it was canceling the sale auction built into its Chapter 11 plan. Bids were due August 7, the auction was set for August 12, and nobody qualified. TPx filed for Chapter 11 on June 28 with a restructuring support agreement backed by holders of roughly 98 percent of its funded debt, aiming to shed part of a 1.1 billion dollar debt load through either a sale or a lender-led recapitalization if no buyer showed up. With the auction dead, TPx moves to option two: a new first-lien exit facility of about 54.1 million dollars plus up to 64.7 million in tranche A and 9.8 million in tranche B preferred equity for its lenders. TPx kept paying sales agent commissions throughout the case. Creditors have until August 26 to object, with confirmation expected September 2.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Nobody bid on TPx even at bankruptcy prices, and that is the real headline here, not the recapitalization mechanics. If a competitor's assets are not worth buying at a discount, the accounts sitting on that platform are worth a call regardless of what the reorg plan says about business as usual. Commission continuity through the case is a data point for agents deciding whether to keep quoting TPx paper or start routing net new deals elsewhere.</p>
+    </div>
+    <div class="sources"><a href="https://www.channeldive.com/news/tpx-cancels-bankruptcy-auction-with-no-qualified-bids/827952/" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+
+  <article class="card" data-id="ringcentral-breach-dump" data-tags="security">
+    <div class="cardtop">
+      <span class="tag tag-security">Security</span>
+      <button class="star" data-id="ringcentral-breach-dump" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">RingCentral's breach data just landed in Have I Been Pwned, 1.6 million records</h3>
+    <div class="publine">The Register &middot; Aug 14, 2026</div>
+    <p class="body">RingCentral disclosed on July 28 that a social engineering campaign, attributed to the ShinyHunters extortion crew, had compromised systems holding customer data, though the company said its core calling platform kept running without disruption. ShinyHunters claimed roughly 623 gigabytes taken and, after RingCentral declined to pay, published a 280 gigabyte archive. The Register reported on August 14 that the leaked data, about 1.6 million records with names, emails, phone numbers, and physical addresses, had been loaded into Have I Been Pwned, with 44 percent of the addresses already appearing in prior breaches. The intrusion method fits ShinyHunters' usual playbook: help desk impersonation and OAuth or session token abuse to get around multi factor authentication, rather than a flaw in RingCentral's product itself.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>The platform stayed up, so this is not a downtime story to weaponize against RingCentral, it is a support desk story. ShinyHunters got in by social engineering a help desk, the same attack surface every UCaaS vendor runs, including whoever you sell. Use it to ask your own vendor how their support team verifies identity before making account changes, then ask the same question in the next RingCentral competitive deal.</p>
+    </div>
+    <div class="sources"><a href="https://www.theregister.com/cyber-crime/2026/08/14/16m-ringcentral-accounts-data-dumped-after-shinyhunters-extortion-attack/5288003" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+</section>
+
+<section id="skims">
+  <h2>Worth knowing</h2>
+
+  <article class="card" data-id="scansource-microage" data-tags="channel">
+    <div class="cardtop">
+      <span class="tag tag-channel">Channel</span>
+      <button class="star" data-id="scansource-microage" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">ScanSource buys MicroAge for 220.5 million, betting on distributor-as-MSP</h3>
+    <div class="publine">Channel Dive &middot; Aug 21, 2026</div>
+    <p class="body">ScanSource, parent of master agent Intelisys, agreed August 21 to buy IT integrator and MSP MicroAge for 220.5 million dollars in cash. MicroAge serves about 2,400 customers with cloud, cybersecurity, data center, and AI consulting, plus partnerships spanning Microsoft, Dell, and CrowdStrike. The deal closes by the end of September, funded through ScanSource's credit facility.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>A distributor buying the MSP business its own channel used to service is convergence with teeth. Watch whether Intelisys stays neutral once its parent runs a competing services arm in house.</p>
+    </div>
+    <div class="sources"><a href="https://www.channeldive.com/news/scansource-to-buy-microage-mike-baur-220-million-convergence-ctpros/828442/" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+
+  <article class="card" data-id="brinztech-sip-telegram" data-tags="security">
+    <div class="cardtop">
+      <span class="tag tag-security">Security</span>
+      <button class="star" data-id="brinztech-sip-telegram" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">Somebody is selling live access to a US business phone system on Telegram</h3>
+    <div class="publine">Brinztech &middot; Aug 17, 2026</div>
+    <p class="body">Threat researchers found a Telegram seller on August 17 advertising administrative access to a US SIP telephony domain, including control of call routes, internal extensions, spoofed caller ID, and 25 concurrent call channels, compatible with common softphone dialers. Buyers could use it for toll fraud, vishing that spoofs a trusted internal number, or passive call interception.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>This is not hypothetical risk to gesture at in a security slide, it is a live listing. If a prospect's SIP trunk sits behind a weak admin portal or no MFA, that is the specific, current reason to bundle managed security into the phone conversation instead of pitching it separately.</p>
+    </div>
+    <div class="sources"><a href="https://www.brinztech.com/breach-alerts/brinztech-alert-threat-actor-offers-unauthorized-access-to-us-based-sip-telephony-infrastructure-on-telegram" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+
+  <article class="card" data-id="salesforce-headless-360" data-tags="ai">
+    <div class="cardtop">
+      <span class="tag tag-ai">AI</span>
+      <button class="star" data-id="salesforce-headless-360" aria-label="Save this card">&#9734;</button>
+    </div>
+    <h3 class="headline">Salesforce opens Agentforce's plumbing so any AI tool can drive your CRM</h3>
+    <div class="publine">SiliconANGLE &middot; Aug 19, 2026</div>
+    <p class="body">Salesforce expanded Headless 360 on August 19 with an MCP server architecture that lets AI agents in Agentforce, Claude, ChatGPT, and other tools discover and invoke Salesforce capabilities directly, aware of the underlying permissions and workflows rather than just raw endpoints. A companion Data 360 MCP Server exposes roughly 200 APIs so agents can act on customer data without manual tool stitching, with general availability targeted for this month.</p>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>This is the plumbing that eventually lets an agent update a deal stage or trigger a follow up on its own. If your forecasting tool sits on Salesforce, ask the vendor whether they are building on this standard or on something proprietary that risks getting orphaned.</p>
+    </div>
+    <div class="sources"><a href="https://siliconangle.com/2026/08/19/salesforce-expands-headless-data-360-mcp-developers-can-bring-insights-agents/" target="_blank" rel="noopener">Read the source &rarr;</a></div>
+  </article>
+</section>
+
+<section id="also-noted">
+  <h2>Also noted</h2>
+  <ul class="noted">
+    <li>
+      <a href="https://www.stocktitan.net/news/ERIC/ericsson-announces-change-to-the-executive-e6yr2u259tgh.html" target="_blank" rel="noopener">Ericsson's handover at Vonage completes this week: Niklas Heuveldop stepped down as CEO on August 15, replaced by Christophe Van de Weyer, as Ericsson keeps resetting an enterprise comms unit its own leadership has called an underperformer.</a>
+      <span class="src">StockTitan &middot; Jul 21, 2026</span>
+    </li>
+    <li>
+      <a href="https://www.channeldive.com/news/channel-acquistions-consolidation-managed-services-omdia/828297/" target="_blank" rel="noopener">MSP acquisitions jumped 73 percent year over year in Q1 2026, 64 deals globally, per Omdia data. Consolidation is not slowing down.</a>
+      <span class="src">Channel Dive &middot; Aug 19, 2026</span>
+    </li>
+    <li>
+      <a href="https://www.channeldive.com/news/ransomware-mid-market-firms-black-kite/828302/" target="_blank" rel="noopener">Medium sized businesses accounted for about 73 percent of ransomware incidents from 2023 through mid-2026, per risk firm Black Kite. That is the segment most UCaaS and MSP deals live in.</a>
+      <span class="src">Channel Dive &middot; Aug 19, 2026</span>
+    </li>
+  </ul>
+</section>
+
+<section id="saved-view" style="display:none"></section>
+
+<footer>Dale's read. Built before your alarm went off.</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "pulse-saved";
+
+  // saved = array of full card snapshots (not just IDs), so a starred card
+  // keeps showing up in the Saved tab even after tomorrow's edition
+  // replaces today's cards entirely.
+  var MAX_SAVED = 200;
+
+  function loadSaved(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return [];
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed.filter(function(x){ return x && x.id; }) : [];
+    }catch(e){ return []; }
+  }
+  function persistSaved(){
+    try{
+      if(saved.length > MAX_SAVED){ saved = saved.slice(saved.length - MAX_SAVED); }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+    }catch(e){}
+  }
+  function formatSavedDate(ts){
+    if(!ts) return "";
+    try{
+      var d = new Date(ts);
+      var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      return "Saved " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+    }catch(e){ return ""; }
+  }
+
+  var saved = loadSaved();
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+  var savedViewEl = document.getElementById("saved-view");
+
+  function findSavedIndex(id){
+    for(var i=0;i<saved.length;i++){ if(saved[i].id === id) return i; }
+    return -1;
+  }
+  function isSaved(id){ return findSavedIndex(id) !== -1; }
+
+  function snapshotFromCard(card){
+    var tagEl = card.querySelector(".tag");
+    var headEl = card.querySelector(".headline");
+    var pubEl = card.querySelector(".publine");
+    var bodyEl = card.querySelector(".body");
+    var commEl = card.querySelector(".commentary p");
+    var linkEl = card.querySelector(".sources a");
+    return {
+      id: card.getAttribute("data-id"),
+      tagClass: tagEl ? tagEl.className.replace("tag", "").trim() : "",
+      tagLabel: tagEl ? tagEl.textContent.trim() : "",
+      headline: headEl ? headEl.textContent.trim() : "",
+      publine: pubEl ? pubEl.textContent.trim() : "",
+      body: bodyEl ? bodyEl.textContent.trim() : "",
+      commentary: commEl ? commEl.textContent.trim() : "",
+      sourceHref: linkEl ? linkEl.getAttribute("href") : "",
+      savedAt: Date.now()
+    };
+  }
+
+  function toggleSave(id, card){
+    var idx = findSavedIndex(id);
+    if(idx === -1){
+      if(card) saved.push(snapshotFromCard(card));
+    } else {
+      saved.splice(idx, 1);
+    }
+    persistSaved();
+  }
+
+  function applyStarStates(){
+    cards.forEach(function(card){
+      var id = card.getAttribute("data-id");
+      var btn = card.querySelector(".star");
+      if(!btn) return;
+      if(isSaved(id)){
+        btn.classList.add("saved");
+        btn.innerHTML = "&#9733;";
+      } else {
+        btn.classList.remove("saved");
+        btn.innerHTML = "&#9734;";
+      }
+    });
+  }
+
+  document.querySelectorAll(".star").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var id = btn.getAttribute("data-id");
+      var card = btn.closest(".card");
+      toggleSave(id, card);
+      applyStarStates();
+      updateCounts();
+      applyFilter(currentFilter);
+    });
+  });
+
+  function renderSavedView(){
+    savedViewEl.innerHTML = "";
+    if(saved.length === 0){
+      var empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "Nothing saved yet. Tap the star on a card to keep it.";
+      savedViewEl.appendChild(empty);
+      return;
+    }
+    saved.slice().reverse().forEach(function(item){
+      var art = document.createElement("article");
+      art.className = "card";
+      art.setAttribute("data-id", item.id);
+
+      var top = document.createElement("div");
+      top.className = "cardtop";
+
+      var tag = document.createElement("span");
+      tag.className = ("tag " + (item.tagClass || "")).trim();
+      tag.textContent = item.tagLabel || "";
+      top.appendChild(tag);
+
+      var star = document.createElement("button");
+      star.className = "star saved";
+      star.setAttribute("aria-label", "Remove from saved");
+      star.innerHTML = "&#9733;";
+      star.addEventListener("click", function(){
+        toggleSave(item.id, null);
+        applyStarStates();
+        updateCounts();
+        renderSavedView();
+      });
+      top.appendChild(star);
+      art.appendChild(top);
+
+      var h = document.createElement("h3");
+      h.className = "headline";
+      h.textContent = item.headline;
+      art.appendChild(h);
+
+      var publineParts = [];
+      if(item.publine) publineParts.push(item.publine);
+      var savedLabel = formatSavedDate(item.savedAt);
+      if(savedLabel) publineParts.push(savedLabel);
+      if(publineParts.length){
+        var pub = document.createElement("div");
+        pub.className = "publine";
+        pub.textContent = publineParts.join(" · ");
+        art.appendChild(pub);
+      }
+
+      var body = document.createElement("p");
+      body.className = "body";
+      body.textContent = item.body;
+      art.appendChild(body);
+
+      if(item.commentary){
+        var comm = document.createElement("div");
+        comm.className = "commentary";
+        var label = document.createElement("span");
+        label.className = "label";
+        label.textContent = "Dale's read";
+        var p = document.createElement("p");
+        p.textContent = item.commentary;
+        comm.appendChild(label);
+        comm.appendChild(p);
+        art.appendChild(comm);
+      }
+
+      if(item.sourceHref){
+        var src = document.createElement("div");
+        src.className = "sources";
+        var a = document.createElement("a");
+        a.href = item.sourceHref;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = "Read the source →";
+        src.appendChild(a);
+        art.appendChild(src);
+      }
+
+      savedViewEl.appendChild(art);
+    });
+  }
+
+  var TELECOM_TAGS = ["telecom","channel","regulatory","security"];
+  var currentFilter = "all";
+  var DAILY_SECTIONS = ["deep-dives","skims","also-noted"];
+
+  function cardMatches(card, filter){
+    var tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+    if(filter === "all") return true;
+    if(filter === "ai") return tags.indexOf("ai") !== -1;
+    if(filter === "telecom") return tags.some(function(t){ return TELECOM_TAGS.indexOf(t) !== -1; });
+    return true;
+  }
+
+  function applyFilter(filter){
+    currentFilter = filter;
+
+    if(filter === "saved"){
+      DAILY_SECTIONS.forEach(function(id){
+        var sec = document.getElementById(id);
+        if(sec) sec.style.display = "none";
+      });
+      savedViewEl.style.display = "";
+      renderSavedView();
+      return;
+    }
+
+    DAILY_SECTIONS.forEach(function(id){
+      var sec = document.getElementById(id);
+      if(sec) sec.style.display = "";
+    });
+    savedViewEl.style.display = "none";
+
+    cards.forEach(function(card){
+      card.classList.toggle("hidden", !cardMatches(card, filter));
+    });
+    ["deep-dives","skims"].forEach(function(secId){
+      var sec = document.getElementById(secId);
+      var visibleCards = sec.querySelectorAll(".card:not(.hidden)").length;
+      sec.style.display = visibleCards > 0 ? "" : "none";
+    });
+  }
+
+  function updateCounts(){
+    var counts = { all: cards.length, telecom: 0, ai: 0, saved: saved.length };
+    cards.forEach(function(card){
+      var tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+      if(tags.some(function(t){ return TELECOM_TAGS.indexOf(t) !== -1; })) counts.telecom++;
+      if(tags.indexOf("ai") !== -1) counts.ai++;
+    });
+    document.getElementById("n-all").textContent = counts.all;
+    document.getElementById("n-telecom").textContent = counts.telecom;
+    document.getElementById("n-ai").textContent = counts.ai;
+    document.getElementById("n-saved").textContent = counts.saved;
+  }
+
+  document.querySelectorAll(".pill").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".pill").forEach(function(p){ p.classList.remove("active"); });
+      btn.classList.add("active");
+      applyFilter(btn.getAttribute("data-filter"));
+    });
+  });
+
+  function computeReadTime(){
+    var words = 0;
+    document.querySelectorAll(".body, .commentary p, .headline, ul.noted a").forEach(function(el){
+      var t = el.textContent || "";
+      words += t.trim().split(/\s+/).filter(Boolean).length;
+    });
+    var mins = Math.max(1, Math.ceil(words / 200));
+    document.getElementById("meta-read").textContent = mins + " min read";
+  }
+
+  function init(){
+    applyStarStates();
+    updateCounts();
+    document.getElementById("meta-count").textContent = cards.length + " stories";
+    computeReadTime();
+    applyFilter("all");
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
