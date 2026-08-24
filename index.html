@@ -1,247 +1,428 @@
-<title>The Pulse</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pulse - August 24, 2026</title>
 <style>
-  :root{
-    --bg:#0b0d10; --card:#12151a; --border:#1e232b;
-    --text:#e6e9ef; --muted:#8b95a3; --amber:#f0a04b;
-    --telecom:#5b9cf0; --ai:#b07af0; --security:#f05b5b; --channel:#5bd18a; --regulatory:#e0c93f;
+  :root {
+    --bg: #0b0d10;
+    --card: #12151a;
+    --border: #1e232b;
+    --text: #e6e9ef;
+    --muted: #8b95a3;
+    --accent: #f0a04b;
+    --telecom: #4a90d9;
+    --ai: #a78bfa;
+    --security: #ef4444;
+    --channel: #34d399;
+    --regulatory: #eab308;
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-  body{padding-bottom:40px;}
-  header.top{padding:18px 16px 12px;border-bottom:1px solid var(--border);}
-  h1.title{font-size:26px;margin:0 0 6px;font-weight:700;letter-spacing:-.3px;}
-  h1.title span{color:var(--amber);}
-  .meta{font-size:13px;color:var(--muted);}
-  .pills{display:flex;gap:8px;padding:12px 16px;position:sticky;top:0;background:var(--bg);
-    z-index:10;border-bottom:1px solid var(--border);overflow-x:auto;}
-  .pill{flex:0 0 auto;padding:10px 14px;min-height:44px;display:flex;align-items:center;
-    border:1px solid var(--border);border-radius:999px;font-size:13px;color:var(--muted);
-    background:var(--card);cursor:pointer;white-space:nowrap;}
-  .pill.active{border-color:var(--amber);color:var(--amber);}
-  main{padding:16px;max-width:640px;margin:0 auto;}
-  section.group{margin-bottom:22px;}
-  section.group h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;
-    color:var(--muted);margin:0 0 10px;font-weight:600;}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;
-    padding:16px;margin-bottom:14px;}
-  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;}
-  .tag{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;
-    font-weight:700;padding:3px 7px;border-radius:4px;}
-  .tag-telecom{background:rgba(91,156,240,.15);color:var(--telecom);}
-  .tag-ai{background:rgba(176,122,240,.15);color:var(--ai);}
-  .tag-security{background:rgba(240,91,91,.15);color:var(--security);}
-  .tag-channel{background:rgba(91,209,138,.15);color:var(--channel);}
-  .tag-regulatory{background:rgba(224,201,63,.15);color:var(--regulatory);}
-  .star{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;
-    min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;}
-  .star.saved{color:var(--amber);}
-  h3.headline{font-size:18px;margin:0 0 4px;line-height:1.3;}
-  .source-line{font-size:12px;color:var(--muted);margin-bottom:10px;}
-  .body-text{font-size:14px;line-height:1.55;margin:0 0 12px;}
-  .commentary{border-left:2px solid var(--amber);padding:8px 12px;margin:12px 0;background:rgba(240,160,75,.04);}
-  .commentary .label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;
-    color:var(--amber);font-weight:700;display:block;margin-bottom:5px;}
-  .commentary p{font-size:14px;line-height:1.5;margin:0;color:var(--text);}
-  .reaction{background:#0e1115;border:1px solid var(--border);border-radius:8px;
-    padding:10px 12px;margin:10px 0;font-size:13px;}
-  .reaction .src{color:var(--muted);font-size:12px;margin-bottom:4px;}
-  .reaction q{font-style:italic;display:block;margin-top:4px;}
-  a.src-link{color:var(--amber);text-decoration:none;font-size:13px;font-weight:600;}
-  a.src-link:hover{text-decoration:underline;}
-  ul.noted{list-style:none;margin:0;padding:0;}
-  ul.noted li{font-size:14px;line-height:1.5;padding:12px 0;border-bottom:1px solid var(--border);}
-  ul.noted li:last-child{border-bottom:none;}
-  ul.noted a{color:var(--amber);text-decoration:none;}
-  ul.noted a:hover{text-decoration:underline;}
-  .empty-state{font-size:14px;color:var(--muted);text-align:center;padding:40px 16px;}
-  footer.foot{text-align:center;font-size:12px;color:var(--muted);padding:24px 16px 8px;}
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  body { padding-bottom: 48px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header.top {
+    padding: 20px 16px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.top h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+  }
+  header.top h1 span { color: var(--accent); }
+  header.top .meta {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .pills {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(11,13,16,0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .pill {
+    flex: 0 0 auto;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+  }
+  .pill .count {
+    background: rgba(255,255,255,0.08);
+    border-radius: 999px;
+    padding: 1px 7px;
+    font-size: 11px;
+  }
+  .pill.active {
+    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .pill.active .count {
+    background: rgba(11,13,16,0.25);
+    color: var(--bg);
+  }
+
+  main { padding: 18px 16px 8px; max-width: 640px; margin: 0 auto; }
+
+  h2.section {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin: 26px 0 12px;
+  }
+  h2.section:first-child { margin-top: 4px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .tag.telecom { color: var(--telecom); background: rgba(74,144,217,0.12); }
+  .tag.ai { color: var(--ai); background: rgba(167,139,250,0.12); }
+  .tag.security { color: var(--security); background: rgba(239,68,68,0.12); }
+  .tag.channel { color: var(--channel); background: rgba(52,211,153,0.12); }
+  .tag.regulatory { color: var(--regulatory); background: rgba(234,179,8,0.12); }
+
+  .star-btn {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .star-btn.saved { color: var(--accent); }
+
+  h3.headline {
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  .byline {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .body-text {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .commentary {
+    border-left: 2px solid var(--accent);
+    padding: 8px 0 8px 12px;
+    margin-bottom: 10px;
+  }
+  .commentary .label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .commentary p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .reaction {
+    background: #0d1013;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .reaction .source {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .reaction q { font-style: italic; }
+  .source-link { font-size: 13px; font-weight: 600; }
+
+  .noted-list { list-style: none; margin: 0; padding: 0; }
+  .noted-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .noted-list li:last-child { border-bottom: none; }
+  .noted-list a { color: var(--text); font-weight: 600; }
+  .noted-list .noted-src {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  footer {
+    max-width: 640px;
+    margin: 24px auto 0;
+    padding: 16px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 16px;
+    font-size: 14px;
+  }
 </style>
+</head>
+<body>
 
 <header class="top">
-  <h1 class="title">The <span>Pulse</span></h1>
-  <div class="meta" id="header-meta">Sunday, August 23, 2026 &middot; 8 items &middot; 7 min read</div>
+  <h1>The <span>Pulse</span></h1>
+  <div class="meta" id="header-meta">August 24, 2026 &middot; 5 stories &middot; 6 min read</div>
 </header>
 
-<div class="pills">
-  <div class="pill active" data-filter="all">All <span id="count-all"></span></div>
-  <div class="pill" data-filter="telecom">Telecom <span id="count-telecom"></span></div>
-  <div class="pill" data-filter="ai">AI <span id="count-ai"></span></div>
-  <div class="pill" data-filter="saved">Saved <span id="count-saved"></span></div>
-</div>
+<nav class="pills">
+  <div class="pill active" data-filter="all">All <span class="count" id="count-all">0</span></div>
+  <div class="pill" data-filter="telecom">Telecom <span class="count" id="count-telecom">0</span></div>
+  <div class="pill" data-filter="ai">AI <span class="count" id="count-ai">0</span></div>
+  <div class="pill" data-filter="saved">Saved <span class="count" id="count-saved">0</span></div>
+</nav>
 
 <main>
 
-  <section class="group" id="group-deep">
-    <h2>Read these two</h2>
+  <h2 class="section">Read these two</h2>
 
-    <article class="card" data-id="c1" data-tags="telecom">
-      <div class="card-top">
-        <span class="tag tag-telecom">Telecom</span>
-        <button class="star" data-id="c1">&#9734;</button>
+  <article class="card" data-id="verizon-channel-chief-humana" data-topic="channel">
+    <div class="card-top">
+      <div>
+        <span class="tag channel">Channel</span>
       </div>
-      <h3 class="headline">Zoom guides down for Q2, Webex just had its best quarter in seven years</h3>
-      <div class="source-line">UC Today &middot; Aug 18, 2026</div>
-      <p class="body-text">Zoom told investors to expect Q2 revenue of $1.265 to $1.270 billion, a 4.1% year-over-year gain at the midpoint and a step down from the 5.5% growth CEO Eric Yuan called one of the company's best stretches in years. Cisco did not wait to make the contrast: Webex just closed its best quarter in seven years, with the Collaboration segment up 12%. RingCentral posted 5.9% growth in its latest quarter, also ahead of Zoom's own guidance. Zoom is still leaning on AI Companion, whose paid seats grew 184% year over year, but that adoption curve has not turned into matching revenue yet. Three vendors on the same buyer's shortlist just posted three different stories about where growth in video and calling actually lives right now, and it is not where Zoom is pointing Wall Street.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>This is a live one for any deal where Zoom is the incumbent up for renewal. Webex's number gives Cisco shops a real growth story instead of a legacy label, and RingCentral's beat undercuts the idea that UCaaS growth has stalled industry-wide. It is Zoom specifically that is cooling. Flag the AI Companion gap too: seat growth without matching revenue makes a nice slide, not a renewal case.</p>
-      </div>
-      <a class="src-link" href="https://www.uctoday.com/zoom-guides-lower-for-q2-as-webex-posts-best-ever-quarter" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
+      <button class="star-btn" data-id="verizon-channel-chief-humana" aria-label="Save story">&#9734;</button>
+    </div>
+    <h3 class="headline">Verizon's channel chief bolts for a health insurer, and partners are already nervous</h3>
+    <div class="byline">Channel Dive &middot; August 10, 2026</div>
+    <div class="body-text">
+      Mark Tina, a 23-year Verizon veteran and VP of Indirect Partner Sales, is leaving to run national partner sales and distribution at Humana, in a newly created role that has nothing to do with telecom. Tina built Verizon's indirect channel from what he called "only single-digit indirect distribution" into "healthy double digits," running a 700-person org that reported to Verizon Business CEO Kyle Malady. John Constantino, Verizon's VP of Business Sales, inherits the indirect book on top of his existing job. No word yet on whether indirect gets a dedicated leader again or stays folded under Constantino permanently. Partners aren't hiding their nerves: Connected Solutions Group CEO Michael Pittman called Tina "a champion for the programs" and "one of the better human beings I have experienced in business."
+    </div>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Losing the executive who built your indirect motion from scratch is bad enough; losing them to an industry with nothing to do with telecom means this wasn't about a better comp plan down the street. Any TSD running on personal relationships instead of program mechanics should be nervous. If Constantino treats indirect as a side project, expect slower answers out of Verizon's channel org for a quarter or two. Get a second contact on file now.</p>
+    </div>
+    <a class="source-link" href="https://www.channeldive.com/news/verizon-channel-chief-leaves-for-health-insurer-humana/827474/" target="_blank" rel="noopener">Read at Channel Dive &rarr;</a>
+  </article>
 
-    <article class="card" data-id="c2" data-tags="ai">
-      <div class="card-top">
-        <span class="tag tag-ai">AI</span>
-        <button class="star" data-id="c2">&#9734;</button>
+  <article class="card" data-id="ai-identity-fraud-surge" data-topic="security">
+    <div class="card-top">
+      <div>
+        <span class="tag security">Security</span>
       </div>
-      <h3 class="headline">Otter.ai loses its bid to dismiss the core claims over recording your meetings</h3>
-      <div class="source-line">UC Today &middot; Aug 18, 2026</div>
-      <p class="body-text">A federal judge in California refused to throw out the core claims in a class action against Otter.ai, the meeting transcription tool riding along in plenty of Zoom, Teams, and Google Meet calls. Judge Eumi K. Lee let federal wiretap claims, California privacy claims, and Illinois Biometric Information Privacy Act claims move forward, rejecting Otter's argument that it is just a service provider passing data through. The court found enough evidence that Otter retained and used conversation data on its own account, including for training its models, to treat it as a possible third-party interceptor instead. Some Computer Fraud and Abuse Act claims got dismissed, and plaintiffs have 14 days to amend what is left. The BIPA piece is the one that stings: statutory damages run up to $5,000 per intentional violation, and voiceprint capture is what triggered it.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>Every AI notetaker riding along on a sales call now has a live legal test case attached to it. If a prospect asks what happens to the voiceprint and transcript data their meeting tool captures, "the vendor trains on it" is not a safe answer anymore, at least not in Illinois. Worth knowing before pitching a bundled AI meeting assistant as a frictionless add-on.</p>
-      </div>
-      <a class="src-link" href="https://www.uctoday.com/otter-ai-fails-to-dismiss-core-privacy-claims-in-u-s-court" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
-  </section>
+      <button class="star-btn" data-id="ai-identity-fraud-surge" aria-label="Save story">&#9734;</button>
+    </div>
+    <h3 class="headline">Fake IDs made by AI are now a five-dollar problem, and search interest is up 3,800 percent</h3>
+    <div class="byline">CX Today &middot; August 24, 2026</div>
+    <div class="body-text">
+      Global search interest in "AI identity fraud" is up roughly 3,826 percent over the past year to around 14,000 monthly searches, with a 24 percent jump in just the last three months. The driver is access, not sophistication. Ben O'Brien of ID Card Centre put it plainly: forging documents "used to require skill; now it just requires access to a generator." That covers both AI-faked government IDs and synthetic identities blending real stolen data with fabricated details, and both are built to slide past the quick visual check a front-line employee actually has time to run. Hospitality, retail, recruitment, healthcare, real estate and education carry the most exposure, anywhere a remote interaction or a rushed decision stands in for real verification.
+    </div>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>This isn't a contact-center trend piece, it's a prospecting hook. Every business that verifies identity over a call or a chat now has a documented, quantified reason to fix fraud controls this quarter instead of next. Lead with "3,800 percent," not "synthetic identity." The number gets a meeting, the jargon gets a blank stare. Anyone still selling voice or contact center on features alone is leaving an easy urgency argument sitting on the table.</p>
+    </div>
+    <a class="source-link" href="https://www.cxtoday.com/security-privacy-compliance/ai-identity-fraud-interest-increases-almost-4000-as-fake-ids-become-easier-to-create/" target="_blank" rel="noopener">Read at CX Today &rarr;</a>
+  </article>
 
-  <section class="group" id="group-skim">
-    <h2>Worth knowing</h2>
+  <h2 class="section">Worth knowing</h2>
 
-    <article class="card" data-id="c3" data-tags="regulatory">
-      <div class="card-top">
-        <span class="tag tag-regulatory">Regulatory</span>
-        <button class="star" data-id="c3">&#9734;</button>
+  <article class="card" data-id="sfr-cyberattack-fiber-tool" data-topic="security">
+    <div class="card-top">
+      <div>
+        <span class="tag security">Security</span>
       </div>
-      <h3 class="headline">Copper sunset keeps accelerating, and the FCC keeps saying yes</h3>
-      <div class="source-line">Broadband Breakfast &middot; Aug 21, 2026</div>
-      <p class="body-text">AT&amp;T now has FCC approval to discontinue legacy service across more than 30% of its roughly 4,600 copper wire centers, effective late this year. Verizon wants to drop copper across millions of passings in 17 states, Fidium across hundreds of thousands of locations in eight, both citing subscriber counts as low as 4%. AT&amp;T is also asking the FCC to preempt California's stricter carrier-of-last-resort rules, over state and consumer advocate objections.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>Copper sunset timelines keep compressing faster than most legacy-line customers realize. Anyone still quoting a POTS-to-SIP migration on a leisurely runway should update that pitch. In a lot of these footprints the runway is now measured in months.</p>
-      </div>
-      <a class="src-link" href="https://broadbandbreakfast.com/isps-want-to-continue-to-discontinue-copper-service/" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
+      <button class="star-btn" data-id="sfr-cyberattack-fiber-tool" aria-label="Save story">&#9734;</button>
+    </div>
+    <h3 class="headline">France's SFR gets hit, customer data walks out through a fiber management tool</h3>
+    <div class="byline">Light Reading &middot; August 21, 2026</div>
+    <div class="body-text">
+      French carrier SFR confirmed a breach after attackers exploited vulnerabilities in a tool used to manage fiber connections, exposing customer postal addresses, emails and phone numbers. SFR hasn't said how many subscribers are affected, but says it suspended access to the affected systems immediately and has since added new security measures.
+    </div>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Another carrier learns that provisioning and back-office tools are as much an attack surface as the network itself. Worth raising with any prospect who assumes their provider's plumbing isn't their problem.</p>
+    </div>
+    <a class="source-link" href="https://www.lightreading.com/security/eurobites-france-s-sfr-falls-prey-to-cyberattack-report" target="_blank" rel="noopener">Read at Light Reading &rarr;</a>
+  </article>
 
-    <article class="card" data-id="c4" data-tags="ai">
-      <div class="card-top">
-        <span class="tag tag-ai">AI</span>
-        <button class="star" data-id="c4">&#9734;</button>
+  <article class="card" data-id="openai-private-safety-processing" data-topic="ai">
+    <div class="card-top">
+      <div>
+        <span class="tag ai">AI</span>
       </div>
-      <h3 class="headline">Gartner: only one in four AI customer service deployments actually pays off</h3>
-      <div class="source-line">No Jitter &middot; Aug 18, 2026</div>
-      <p class="body-text">Gartner looked at 432 AI customer service deployments and found a quarter delivering positive ROI, a quarter delivering negative returns, 42% with a payoff their own leaders could not quantify, and 11% breaking even. None of that has slowed spending. More than three-quarters of leaders surveyed plan to increase AI investment in 2026 regardless of whether last year's investment paid off.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>Handy math for the next time a competitor's pitch leans on "AI-powered" as the whole argument. Ask what the ROI number actually is. Most of the time, per Gartner, there is not a good answer yet.</p>
-      </div>
-      <a class="src-link" href="https://www.nojitter.com/customer-experience/untitled" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
+      <button class="star-btn" data-id="openai-private-safety-processing" aria-label="Save story">&#9734;</button>
+    </div>
+    <h3 class="headline">OpenAI tries to make enterprises comfortable handing over sensitive data</h3>
+    <div class="byline">CX Today &middot; August 20, 2026</div>
+    <div class="body-text">
+      OpenAI unveiled Private Safety Processing, built on zero data retention so prompts and responses aren't kept after a request completes. The pitch targets enterprises sitting on financial records, health data or confidential business plans who've held off adopting AI tools over exactly that exposure. Automated risk detection runs without giving OpenAI staff access to retained content, with a choice between enterprise-controlled and encrypted customer-key infrastructure. Rollout starts in September.
+    </div>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>Every AI vendor bolted onto a sales or CX tool eventually gets the "where does my data go" question. OpenAI just published the answer it wants copied. Expect UCaaS and CCaaS vendors to borrow this language fast. If a vendor can't answer as cleanly, ask them why.</p>
+    </div>
+    <a class="source-link" href="https://www.cxtoday.com/security-privacy-compliance/openai-wants-enterprises-to-trust-its-frontier-models-with-sensitive-customer-data/" target="_blank" rel="noopener">Read at CX Today &rarr;</a>
+  </article>
 
-    <article class="card" data-id="c5" data-tags="telecom">
-      <div class="card-top">
-        <span class="tag tag-telecom">Telecom</span>
-        <button class="star" data-id="c5">&#9734;</button>
+  <article class="card" data-id="data-center-capex-3trillion-2030" data-topic="ai">
+    <div class="card-top">
+      <div>
+        <span class="tag ai">AI</span>
       </div>
-      <h3 class="headline">GoTo folds contact center into UC as one AI-priced SMB bundle</h3>
-      <div class="source-line">UC Today &middot; Aug 13, 2026</div>
-      <p class="body-text">GoTo CX Complete merges GoTo Connect with its contact center product into a single SMB bundle, priced around $68 a user against $85 to $100-plus for comparable products bought separately. The pitch leans on AI: an AI receptionist, automated quality review across every interaction instead of a sample, and case studies claiming a 95% cut in missed after-hours calls at one customer and a 25% call-volume drop with a 100% instant-answer rate at another.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>Bundled pricing at that gap is a real objection in an SMB competitive deal, not just a GoTo talking point. Have an answer ready for why a point solution still wins on anything beyond sticker price.</p>
-      </div>
-      <a class="src-link" href="https://www.uctoday.com/goto-cx-complete-and-100-evaluation" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
+      <button class="star-btn" data-id="data-center-capex-3trillion-2030" aria-label="Save story">&#9734;</button>
+    </div>
+    <h3 class="headline">Data center spending is on pace to blow past three trillion dollars by 2030</h3>
+    <div class="byline">Light Reading &middot; August 18, 2026</div>
+    <div class="body-text">
+      Dell'Oro Group now forecasts worldwide data center capex surpassing $3 trillion by 2030, with high-end AI accelerators claiming the largest share. A newly tracked segment, AI-specialized cloud providers and model builders, is growing at nearly a 60 percent compound annual rate, well ahead of every other customer category. General-purpose servers get pulled along too, as inference and agentic workloads add demand beyond pure model training.
+    </div>
+    <div class="commentary">
+      <span class="label">Dale's read</span>
+      <p>The number is big enough to be numbing, so use it differently: it funds every AI feature about to land in your CRM, dialer and contact center platform, whether the prospect asked for it or not. This capex boom is upstream of the pitch you'll be giving in six months.</p>
+    </div>
+    <a class="source-link" href="https://www.lightreading.com/ai-machine-learning/ai-buildout-maintains-momentum-as-data-center-capex-surpasses-3t-by-2030-dell-oro" target="_blank" rel="noopener">Read at Light Reading &rarr;</a>
+  </article>
 
-    <article class="card" data-id="c6" data-tags="channel">
-      <div class="card-top">
-        <span class="tag tag-channel">Channel</span>
-        <button class="star" data-id="c6">&#9734;</button>
-      </div>
-      <h3 class="headline">Telarus rebuilds its back office and puts a number on the pain it fixed</h3>
-      <div class="source-line">Channel Dive &middot; Aug 17, 2026</div>
-      <p class="body-text">Telarus rebuilt its back office after interviewing 92 partners over a year, landing on 1,202 new features across its Hub platform. Deal registration now clears in under an hour, quotes in under two, commission-inquiry response time is down 113% since last fall, and the distributor says it recovered $53 million in commissions partners never had to chase.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>Back-office friction is a real recruiting and retention lever for a TSD, and this is Telarus quantifying it out loud. Expect competing TSDs to answer with their own numbers soon.</p>
-      </div>
-      <a class="src-link" href="https://www.channeldive.com/news/telarus-eases-back-office-processes-expands-software-integration-c3/828070/" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
-
-    <article class="card" data-id="c7" data-tags="channel">
-      <div class="card-top">
-        <span class="tag tag-channel">Channel</span>
-        <button class="star" data-id="c7">&#9734;</button>
-      </div>
-      <h3 class="headline">A TA-built platform wants to run other agencies' back offices too</h3>
-      <div class="source-line">Channel Dive &middot; Aug 18, 2026</div>
-      <p class="body-text">Modero, a new operating platform spun out of TA firm Socium IT, went to general availability in August with free CRM plus paid inventory, contract, and commission tracking, white-labelable under Socium's Vigilis brand. Seven agencies have signed on already, with ten more expected within months.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>Another sign agencies are productizing the ops tooling they built for themselves rather than buying it from the big platforms. One more data point in how fragmented the back-office software layer is getting.</p>
-      </div>
-      <a class="src-link" href="https://www.channeldive.com/news/modero-pitches-socium-tech-advisor-platform-built-tas/828202/" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
-
-    <article class="card" data-id="c8" data-tags="ai">
-      <div class="card-top">
-        <span class="tag tag-ai">AI</span>
-        <button class="star" data-id="c8">&#9734;</button>
-      </div>
-      <h3 class="headline">Telecom AI ambition is 35 points ahead of what carriers can actually ship</h3>
-      <div class="source-line">RCR Wireless &middot; Aug 19, 2026</div>
-      <p class="body-text">An HCLTech survey found 60% of telecom executives see AI as a future revenue driver, but only 25% believe they can actually operationalize it at scale, a 35-point gap. Roughly 80% of operators launch fewer than five new digital products a year, and 49% blame slow product innovation for missing out on higher-value AI revenue.</p>
-      <div class="commentary">
-        <span class="label">Dale's read</span>
-        <p>The carrier reps across the table are working from the same gap. Their AI pitch is probably ahead of what their own organization can actually deliver on.</p>
-      </div>
-      <a class="src-link" href="https://rcrwireless.com/20260819/ai/hcltech-pulse-survey-telecom-ai" target="_blank" rel="noopener">Read source &rarr;</a>
-    </article>
-
-  </section>
-
-  <section class="group" id="group-noted">
-    <h2>Also noted</h2>
-    <ul class="noted">
-      <li>Google won the bankruptcy auction for defunct Spirit Airlines' internal archive, $10 million for roughly 500 million Microsoft Teams chats and 100 million emails, a preview of what happens to a company's Teams data when it folds. <a href="https://www.uctoday.com/google-buys-teams-data-what-if-your-company-folds" target="_blank" rel="noopener">Source &rarr;</a></li>
-      <li>TalkTalk Business and ARO are merging into a roughly $270 million UK tech services provider, betting on cross-selling Microsoft and mobile services into TalkTalk's small-business base. <a href="https://www.theregister.com/channel/2026/08/14/talktalk-business-and-aro-to-borg-into-uk-tech-services-giant/5287825" target="_blank" rel="noopener">Source &rarr;</a></li>
-      <li>Palo Alto Networks and NTT Data signed a $1 billion, three-year cybersecurity alliance, the vendor's largest global systems integrator deal to date. <a href="https://www.channeldive.com/news/palo-alto-networks-ntt-data-1-billion-security-partnership/828431/" target="_blank" rel="noopener">Source &rarr;</a></li>
-      <li>Wispr raised $280 million to push its voice AI past dictation into meeting intelligence and enterprise workflows. <a href="https://www.uctoday.com/wispr-raises-280m-to-expand-voice-ai-beyond-dictation" target="_blank" rel="noopener">Source &rarr;</a></li>
-      <li>Stripe is reportedly buying AI model gateway OpenRouter for more than $7 billion, and Anthropic is reportedly in talks to buy video-AI startup Decart for about $6 billion, both signs the AI infrastructure land grab is not slowing down. <a href="https://www.cxtoday.com/crm/big-cx-news-from-salesforce-stripe-openai-anthropic/" target="_blank" rel="noopener">Source &rarr;</a></li>
-    </ul>
-  </section>
-
-  <div class="empty-state" id="empty-state" style="display:none;">Nothing here yet. Star a card and it will show up in Saved.</div>
+  <h2 class="section">Also noted</h2>
+  <ul class="noted-list">
+    <li>
+      Spectrum's brand takes over Cox's footprint by mid-September, with U.S.-based customer service and a wage floor for reps who move over.
+      <a href="https://www.lightreading.com/cable-technology/charter-cox-deal-is-a-wrap-with-spectrum-brand-to-take-over-within-a-year" target="_blank" rel="noopener">Light Reading &rarr;</a>
+    </li>
+    <li>
+      Lumen still won't commit to an end-of-life date for voice, and partners say they got a nudge toward the door instead of a migration plan.
+      <a href="https://www.channeldive.com/news/lumen-execs-defend-voice-exit-copper-q2/827269/" target="_blank" rel="noopener">Channel Dive &rarr;</a>
+    </li>
+    <li>
+      AvePoint's MSP channel delivered two-thirds of its record $29.2 million in net-new ARR last quarter.
+      <a href="https://www.channeldive.com/news/avepoint-managed-services-platform-smb-growth/827343/" target="_blank" rel="noopener">Channel Dive &rarr;</a>
+    </li>
+    <li>
+      Lumen is betting its fiber network on east-west AI traffic between data centers, and admits it doesn't know how much workload eventually shifts to the edge.
+      <a href="https://rcrwireless.com/20260814/network-infrastructure/lumen-east-west-ai-edge-north-south-in-play" target="_blank" rel="noopener">RCR Wireless &rarr;</a>
+    </li>
+    <li>
+      The FCC punted the AT&amp;T-Duke Energy pole attachment fight to arbitration instead of ruling on it.
+      <a href="https://broadbandbreakfast.com/fcc-wont-hear-at-t-duke-pole-case-right-away/" target="_blank" rel="noopener">Broadband Breakfast &rarr;</a>
+    </li>
+  </ul>
 
 </main>
 
-<footer class="foot">The Pulse &middot; built before sunrise, read once, gone by lunch.</footer>
+<footer>
+  Dale's read. Built before dawn, read on the way to coffee. Nothing here is investment advice.
+</footer>
 
 <script>
-(function(){
-  var STORAGE_KEY = 'pulse-saved';
-  function loadSaved(){
-    try{
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if(!raw) return [];
+(function () {
+  var SAVE_KEY = 'pulse-saved';
+
+  function loadSaved() {
+    try {
+      var raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) return [];
       var parsed = JSON.parse(raw);
       return Array.isArray(parsed) ? parsed : [];
-    }catch(e){ return []; }
+    } catch (e) {
+      return [];
+    }
   }
-  function saveSaved(list){
-    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); }catch(e){}
-  }
-  var saved = loadSaved();
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
-  var currentFilter = 'all';
 
-  function refreshStars(){
-    cards.forEach(function(c){
-      var id = c.getAttribute('data-id');
-      var btn = c.querySelector('.star');
-      if(saved.indexOf(id) > -1){
+  function persistSaved(list) {
+    try {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(list));
+    } catch (e) {
+      /* storage unavailable, degrade silently */
+    }
+  }
+
+  var saved = loadSaved();
+
+  function isSaved(id) {
+    return saved.indexOf(id) !== -1;
+  }
+
+  function toggleSaved(id) {
+    var idx = saved.indexOf(id);
+    if (idx === -1) {
+      saved.push(id);
+    } else {
+      saved.splice(idx, 1);
+    }
+    persistSaved(saved);
+    refreshStars();
+    updateCounts();
+  }
+
+  function refreshStars() {
+    var buttons = document.querySelectorAll('.star-btn');
+    buttons.forEach(function (btn) {
+      var id = btn.getAttribute('data-id');
+      if (isSaved(id)) {
         btn.classList.add('saved');
         btn.innerHTML = '&#9733;';
       } else {
@@ -251,70 +432,76 @@
     });
   }
 
-  function matchesFilter(card, filter){
-    var tags = (card.getAttribute('data-tags') || '').split(' ');
-    var id = card.getAttribute('data-id');
-    if(filter === 'all') return true;
-    if(filter === 'saved') return saved.indexOf(id) > -1;
-    if(filter === 'telecom') return tags.indexOf('telecom') > -1 || tags.indexOf('channel') > -1 || tags.indexOf('regulatory') > -1 || tags.indexOf('security') > -1;
-    if(filter === 'ai') return tags.indexOf('ai') > -1;
-    return true;
-  }
-
-  function applyFilter(){
-    var anyVisible = false;
-    cards.forEach(function(c){
-      var show = matchesFilter(c, currentFilter);
-      c.style.display = show ? '' : 'none';
-      if(show) anyVisible = true;
-    });
-    // hide/show group headers when empty
-    ['group-deep','group-skim'].forEach(function(gid){
-      var g = document.getElementById(gid);
-      var visible = g.querySelectorAll('.card').length && Array.prototype.slice.call(g.querySelectorAll('.card')).some(function(c){return c.style.display !== 'none';});
-      g.style.display = visible ? '' : 'none';
-    });
-    var noted = document.getElementById('group-noted');
-    noted.style.display = (currentFilter === 'all') ? '' : 'none';
-    var empty = document.getElementById('empty-state');
-    empty.style.display = (currentFilter === 'saved' && !anyVisible) ? '' : 'none';
-  }
-
-  function updateCounts(){
-    var all = cards.length;
-    var telecomCount = cards.filter(function(c){return matchesFilter(c,'telecom');}).length;
-    var aiCount = cards.filter(function(c){return matchesFilter(c,'ai');}).length;
-    var savedCount = cards.filter(function(c){return matchesFilter(c,'saved');}).length;
-    document.getElementById('count-all').textContent = '(' + all + ')';
-    document.getElementById('count-telecom').textContent = '(' + telecomCount + ')';
-    document.getElementById('count-ai').textContent = '(' + aiCount + ')';
-    document.getElementById('count-saved').textContent = '(' + savedCount + ')';
-  }
-
-  document.querySelectorAll('.pill').forEach(function(p){
-    p.addEventListener('click', function(){
-      document.querySelectorAll('.pill').forEach(function(x){x.classList.remove('active');});
-      p.classList.add('active');
-      currentFilter = p.getAttribute('data-filter');
-      applyFilter();
-      updateCounts();
+  document.querySelectorAll('.star-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      toggleSaved(btn.getAttribute('data-id'));
     });
   });
 
-  document.querySelectorAll('.star').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var id = btn.getAttribute('data-id');
-      var idx = saved.indexOf(id);
-      if(idx > -1){ saved.splice(idx,1); } else { saved.push(id); }
-      saveSaved(saved);
-      refreshStars();
-      updateCounts();
-      if(currentFilter === 'saved') applyFilter();
+  var cards = document.querySelectorAll('.card');
+  var pills = document.querySelectorAll('.pill');
+  var currentFilter = 'all';
+
+  function cardMatches(card, filter) {
+    var topic = card.getAttribute('data-topic');
+    if (filter === 'all') return true;
+    if (filter === 'ai') return topic === 'ai';
+    if (filter === 'telecom') return topic === 'telecom' || topic === 'channel' || topic === 'regulatory' || topic === 'security';
+    if (filter === 'saved') return isSaved(card.getAttribute('data-id'));
+    return true;
+  }
+
+  function applyFilter(filter) {
+    currentFilter = filter;
+    pills.forEach(function (p) {
+      p.classList.toggle('active', p.getAttribute('data-filter') === filter);
+    });
+    var visibleCount = 0;
+    cards.forEach(function (card) {
+      var match = cardMatches(card, filter);
+      card.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    // toggle section headers when everything under them is hidden
+    document.querySelectorAll('h2.section').forEach(function (h2) {
+      var el = h2.nextElementSibling;
+      var anyVisible = false;
+      while (el && el.tagName !== 'H2') {
+        if (el.classList && el.classList.contains('card') && el.style.display !== 'none') anyVisible = true;
+        if (el.classList && el.classList.contains('noted-list')) anyVisible = true;
+        el = el.nextElementSibling;
+      }
+      h2.style.display = anyVisible ? '' : 'none';
+    });
+  }
+
+  function updateCounts() {
+    var all = cards.length;
+    var telecomCount = 0, aiCount = 0, savedCount = 0;
+    cards.forEach(function (card) {
+      var topic = card.getAttribute('data-topic');
+      if (topic === 'ai') aiCount++;
+      if (topic === 'telecom' || topic === 'channel' || topic === 'regulatory' || topic === 'security') telecomCount++;
+      if (isSaved(card.getAttribute('data-id'))) savedCount++;
+    });
+    document.getElementById('count-all').textContent = all;
+    document.getElementById('count-telecom').textContent = telecomCount;
+    document.getElementById('count-ai').textContent = aiCount;
+    document.getElementById('count-saved').textContent = savedCount;
+  }
+
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      applyFilter(pill.getAttribute('data-filter'));
     });
   });
 
   refreshStars();
   updateCounts();
-  applyFilter();
+  applyFilter('all');
 })();
 </script>
+
+</body>
+</html>
