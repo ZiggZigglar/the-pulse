@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" data-edition-date="{{EDITION_DATE}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pulse - {{TITLE_DATE}}</title>
+<style>
+  :root {
+    --bg: #0b0d10;
+    --card: #12151a;
+    --border: #1e232b;
+    --text: #e6e9ef;
+    --muted: #8b95a3;
+    --amber: #f0a04b;
+    --blue: #5b9bd5;
+    --purple: #b389f0;
+    --red: #e0645a;
+    --green: #6cbf7f;
+    --yellow: #d9c25c;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  header {
+    padding: 20px 16px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  header h1 span { color: var(--amber); }
+  header .meta {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .pills {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(11,13,16,0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .pill {
+    flex: 0 0 auto;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .pill.active {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: rgba(240,160,75,0.08);
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 16px; }
+  section.block { margin-bottom: 22px; }
+  section.block > h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+  .tag.telecom { color: var(--blue); background: rgba(91,155,213,0.12); }
+  .tag.ai { color: var(--purple); background: rgba(179,137,240,0.12); }
+  .tag.security { color: var(--red); background: rgba(224,100,90,0.12); }
+  .tag.channel { color: var(--green); background: rgba(108,191,127,0.12); }
+  .tag.regulatory { color: var(--yellow); background: rgba(217,194,92,0.12); }
+  .star-btn {
+    flex: 0 0 auto;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: none;
+    color: var(--muted);
+    font-size: 20px;
+    cursor: pointer;
+    margin: -10px -8px 0 0;
+  }
+  .star-btn.saved { color: var(--amber); }
+  h3.headline {
+    font-size: 17px;
+    line-height: 1.35;
+    margin: 0 0 6px;
+    font-weight: 700;
+  }
+  .card.deep h3.headline { font-size: 19px; }
+  .byline {
+    color: var(--muted);
+    font-size: 12.5px;
+    margin-bottom: 10px;
+  }
+  .body-text {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .commentary {
+    border-left: 2px solid var(--amber);
+    padding: 4px 0 4px 12px;
+    margin-bottom: 10px;
+  }
+  .commentary .label {
+    display: block;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .commentary p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .reaction {
+    background: #0e1116;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .reaction .src { color: var(--muted); font-size: 11.5px; margin-bottom: 4px; }
+  .reaction q { font-style: italic; }
+  .source-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--amber);
+    text-decoration: none;
+    min-height: 44px;
+    line-height: 44px;
+  }
+  .noted-list { list-style: none; margin: 0; padding: 0; }
+  .noted-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .noted-list li:last-child { border-bottom: none; }
+  .noted-list a {
+    color: var(--amber);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .empty {
+    color: var(--muted);
+    font-size: 14px;
+    padding: 30px 0;
+    text-align: center;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 24px 16px 40px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span>The</span> Pulse</h1>
+  <div class="meta" id="meta-line">{{META_LINE}}</div>
+</header>
+
+<div class="pills">
+  <div class="pill active" data-filter="all">All <span id="count-all"></span></div>
+  <div class="pill" data-filter="telecom">Telecom <span id="count-telecom"></span></div>
+  <div class="pill" data-filter="ai">AI <span id="count-ai"></span></div>
+  <div class="pill" data-filter="saved">Saved <span id="count-saved"></span></div>
+</div>
+
+<main id="main">{{CONTENT}}  <section class="block" id="saved-block" style="display:none;">
+    <h2>Saved for later</h2>
+    <div id="saved-view"></div>
+  </section>
+
+  <div class="empty" id="empty-state" style="display:none;"></div>
+
+</main>
+
+<footer>The Pulse runs on live research, not vibes. Dates are real publication dates, not today's stamp. Saved stories stick around after tomorrow's edition replaces this page.</footer>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'pulse-saved';
+  var EDITION_DATE = document.documentElement.getAttribute('data-edition-date');
+  var ARCHIVE_BASE = 'archive/';
+  var TELECOM_TAGS = ['telecom', 'channel', 'regulatory', 'security'];
+
+  function loadSaved() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return [];
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      var changed = false;
+      var migrated = parsed.map(function (entry) {
+        if (typeof entry === 'string') {
+          changed = true;
+          var article = document.getElementById('card-' + entry);
+          return article ? buildRecord(article) : null;
+        }
+        return entry;
+      }).filter(Boolean);
+      if (changed) persistSaved(migrated);
+      return migrated;
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function persistSaved(list) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    } catch (e) {
+      /* storage unavailable or full, fail silently */
+    }
+  }
+
+  function buildRecord(article) {
+    var starBtn = article.querySelector('.star-btn');
+    var headlineEl = article.querySelector('.headline');
+    var bylineEl = article.querySelector('.byline');
+    var linkEl = article.querySelector('.source-link');
+    return {
+      id: starBtn ? starBtn.getAttribute('data-id') : article.id.replace('card-', ''),
+      headline: headlineEl ? headlineEl.textContent.trim() : '',
+      tag: article.getAttribute('data-topic') || 'telecom',
+      pub: bylineEl ? bylineEl.textContent.trim() : '',
+      url: linkEl ? linkEl.getAttribute('href') : '#',
+      date: EDITION_DATE
+    };
+  }
+
+  var saved = loadSaved();
+  var currentFilter = 'all';
+
+  function findIndex(id) {
+    for (var i = 0; i < saved.length; i++) if (saved[i].id === id) return i;
+    return -1;
+  }
+
+  function isSaved(id) { return findIndex(id) !== -1; }
+
+  function toggleSaved(article) {
+    var starBtn = article.querySelector('.star-btn');
+    var id = starBtn.getAttribute('data-id');
+    var idx = findIndex(id);
+    if (idx === -1) saved.push(buildRecord(article));
+    else saved.splice(idx, 1);
+    persistSaved(saved);
+  }
+
+  function removeSaved(id) {
+    saved = saved.filter(function (r) { return r.id !== id; });
+    persistSaved(saved);
+  }
+
+  document.querySelectorAll('.star-btn').forEach(function (btn) {
+    var id = btn.getAttribute('data-id');
+    if (isSaved(id)) btn.classList.add('saved');
+    btn.addEventListener('click', function () {
+      toggleSaved(btn.closest('article'));
+      btn.classList.toggle('saved');
+      updateCounts();
+      if (currentFilter === 'saved') renderSavedView();
+    });
+  });
+
+  function renderSavedView() {
+    var view = document.getElementById('saved-view');
+    var block = document.getElementById('saved-block');
+    var emptyState = document.getElementById('empty-state');
+    view.innerHTML = '';
+
+    if (!saved.length) {
+      block.style.display = 'none';
+      emptyState.textContent = "Nothing saved yet. Star a card and it'll show up here, tomorrow included.";
+      emptyState.style.display = 'block';
+      return;
+    }
+
+    block.style.display = '';
+    emptyState.style.display = 'none';
+
+    var ordered = saved.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    ordered.forEach(function (r) {
+      var isToday = r.date === EDITION_DATE;
+      var jumpHref = isToday ? ('#card-' + r.id) : (ARCHIVE_BASE + r.date + '.html#card-' + r.id);
+
+      var row = document.createElement('article');
+      row.className = 'card';
+
+      var top = document.createElement('div');
+      top.className = 'card-top';
+      var tag = document.createElement('span');
+      tag.className = 'tag ' + r.tag;
+      tag.textContent = r.tag;
+      var removeBtn = document.createElement('button');
+      removeBtn.className = 'star-btn saved';
+      removeBtn.setAttribute('aria-label', 'Remove from saved');
+      removeBtn.innerHTML = '&#9733;';
+      removeBtn.addEventListener('click', function () {
+        removeSaved(r.id);
+        updateCounts();
+        renderSavedView();
+      });
+      top.appendChild(tag);
+      top.appendChild(removeBtn);
+
+      var h3 = document.createElement('h3');
+      h3.className = 'headline';
+      h3.textContent = r.headline;
+
+      var byline = document.createElement('div');
+      byline.className = 'byline';
+      byline.textContent = r.pub + ' · saved ' + r.date;
+
+      var readLink = document.createElement('a');
+      readLink.className = 'source-link';
+      readLink.href = r.url;
+      readLink.target = '_blank';
+      readLink.rel = 'noopener';
+      readLink.textContent = 'Read the story →';
+
+      var sep = document.createTextNode(' · ');
+
+      var jumpLink = document.createElement('a');
+      jumpLink.className = 'source-link';
+      jumpLink.href = jumpHref;
+      jumpLink.textContent = (isToday ? 'Jump to card' : 'Revisit that edition') + ' →';
+
+      row.appendChild(top);
+      row.appendChild(h3);
+      row.appendChild(byline);
+      row.appendChild(readLink);
+      row.appendChild(sep);
+      row.appendChild(jumpLink);
+      view.appendChild(row);
+    });
+  }
+
+  function applyFilter(filter) {
+    currentFilter = filter;
+    var emptyState = document.getElementById('empty-state');
+
+    if (filter === 'saved') {
+      ['deep-block', 'skim-block', 'noted-block'].forEach(function (id) {
+        document.getElementById(id).style.display = 'none';
+      });
+      renderSavedView();
+      return;
+    }
+
+    document.getElementById('saved-block').style.display = 'none';
+
+    var anyVisible = false;
+    document.querySelectorAll('[data-topic]').forEach(function (node) {
+      var topic = node.getAttribute('data-topic');
+      var match = filter === 'all' ||
+        (filter === 'ai' && topic === 'ai') ||
+        (filter === 'telecom' && TELECOM_TAGS.indexOf(topic) !== -1);
+      node.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
+    });
+
+    ['deep-block', 'skim-block', 'noted-block'].forEach(function (blockId) {
+      var block = document.getElementById(blockId);
+      var visibleChildren = block.querySelectorAll('[data-topic]:not([style*="display: none"])');
+      block.style.display = visibleChildren.length ? '' : 'none';
+    });
+
+    emptyState.textContent = 'Nothing here yet.';
+    emptyState.style.display = anyVisible ? 'none' : 'block';
+  }
+
+  var pills = document.querySelectorAll('.pill');
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pills.forEach(function (p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      applyFilter(pill.getAttribute('data-filter'));
+    });
+  });
+
+  function updateCounts() {
+    var nodes = document.querySelectorAll('[data-topic]');
+    var total = nodes.length, ai = 0, telecom = 0;
+    nodes.forEach(function (node) {
+      var topic = node.getAttribute('data-topic');
+      if (topic === 'ai') ai++;
+      if (TELECOM_TAGS.indexOf(topic) !== -1) telecom++;
+    });
+    document.getElementById('count-all').textContent = '(' + total + ')';
+    document.getElementById('count-telecom').textContent = '(' + telecom + ')';
+    document.getElementById('count-ai').textContent = '(' + ai + ')';
+    document.getElementById('count-saved').textContent = '(' + saved.length + ')';
+  }
+
+  updateCounts();
+  applyFilter('all');
+})();
+</script>
+</body>
+</html>
