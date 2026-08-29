@@ -279,6 +279,90 @@
       "url": "https://broadbandbreakfast.com/fcc-wont-hear-at-t-duke-pole-case-right-away/",
       "headline": "FCC punts AT&T-Duke Energy pole attachment fight to arbitration",
       "tier": "noted"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "claudeforce-salesforce-anthropic",
+      "url": "https://www.nojitter.com/ai-automation/salesforce-q2-revenue-jumps-11-percent-launches-claudeforce",
+      "headline": "Salesforce turns its own CRM into a Claude plugin",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "ccg-insightforge-ai-advisors",
+      "url": "https://www.channeldive.com/news/tech-advisor-launches-platform-guide-enterprise-buyers-through-committee-cloud-communications-group/828889/",
+      "headline": "AI is eating the referral, so one TSD built a database to fight back",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "ai-coaching-becomes-surveillance",
+      "url": "https://www.nojitter.com/ai-automation/real-time-ai-coaching-is-becoming-continuous-surveillance",
+      "headline": "Real-time AI coaching is one setting away from surveillance",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "lightyear-dispatch-agentic-ai",
+      "url": "https://rcrwireless.com/20260825/ai/lightyear-dispatch-agentic-ai",
+      "headline": "Lightyear ships an agent that actually runs the RFP",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "hp-poly-lens-workforce-platform",
+      "url": "https://www.uctoday.com/hp-q3-earnings-poly-moves-into-workplace-platform",
+      "headline": "HP folds Poly's headsets into its IT management platform",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "barracuda-msp-reseller-merge",
+      "url": "https://www.channeldive.com/news/barracuda-merges-msp-reseller-tracks-hybrid-partners-grow-michelle-hodges/829000/",
+      "headline": "Barracuda admits its partners aren't cleanly MSP or reseller anymore",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "bead-plans-all-approved",
+      "url": "https://broadbandbreakfast.com/with-all-bead-plans-approved-states-and-territories-set-to-spend-18-2-billion-on-deployment/",
+      "headline": "Every state's BEAD plan is finally approved, 18 billion now moves",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "td-synnex-partnerfirst-ai-assistant",
+      "url": "https://www.channeldive.com/news/td-synnex-partnerfirst-platform-microsoft-cisco/829011/",
+      "headline": "TD Synnex bolts Microsoft and Cisco deal data onto PartnerFirst",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "msp-ai-churn-risk-survey",
+      "url": "https://www.channeldive.com/news/msps-lacking-ai-deployment-expertise-risk-customer-churn/828634/",
+      "headline": "A third of buyers weighing an MSP switch blame a weak AI story",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "att-sues-charter-fiber-ads",
+      "url": "https://broadbandbreakfast.com/at-t-sues-charter-for-fiber-powered-internet-ads/",
+      "headline": "AT&T sues Charter over fiber-powered ads for its mostly-coax network",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "anthropic-mythos5-partner-access",
+      "url": "https://www.uctoday.com/anthropic-expands-mythos-5-access-but-vendors-hold-the-keys",
+      "headline": "Anthropic expands Mythos 5 access, but vendors hold the keys",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "fcc-broadband-label-rules-streamlined",
+      "url": "https://broadbandbreakfast.com/fccs-streamlined-broadband-label-rules-take-effect-september-14/",
+      "headline": "FCC's streamlined broadband label rules take effect September 14",
+      "tier": "noted"
     }
   ]
 }

@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Pulse - August 24, 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Pulse - August 28, 2026</title>
 <style>
   :root {
     --bg: #0b0d10;
@@ -11,48 +8,44 @@
     --border: #1e232b;
     --text: #e6e9ef;
     --muted: #8b95a3;
-    --accent: #f0a04b;
-    --telecom: #4a90d9;
-    --ai: #a78bfa;
-    --security: #ef4444;
-    --channel: #34d399;
-    --regulatory: #eab308;
+    --amber: #f0a04b;
+    --blue: #5b9bd5;
+    --purple: #b389f0;
+    --red: #e0645a;
+    --green: #6cbf7f;
+    --yellow: #d9c25c;
   }
   * { box-sizing: border-box; }
   html, body {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     background: var(--bg);
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
   }
-  body { padding-bottom: 48px; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  header.top {
+  a { color: inherit; }
+  header {
     padding: 20px 16px 14px;
     border-bottom: 1px solid var(--border);
   }
-  header.top h1 {
+  header h1 {
     margin: 0 0 6px;
     font-size: 26px;
-    letter-spacing: 0.5px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
-  header.top h1 span { color: var(--accent); }
-  header.top .meta {
+  header h1 span { color: var(--amber); }
+  header .meta {
     color: var(--muted);
     font-size: 13px;
   }
-
   .pills {
     position: sticky;
     top: 0;
     z-index: 10;
     display: flex;
     gap: 8px;
-    padding: 10px 16px;
+    padding: 12px 16px;
     background: rgba(11,13,16,0.96);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--border);
@@ -63,7 +56,6 @@
     min-height: 44px;
     display: flex;
     align-items: center;
-    gap: 6px;
     padding: 0 14px;
     border-radius: 999px;
     border: 1px solid var(--border);
@@ -73,34 +65,22 @@
     font-weight: 600;
     cursor: pointer;
     user-select: none;
-  }
-  .pill .count {
-    background: rgba(255,255,255,0.08);
-    border-radius: 999px;
-    padding: 1px 7px;
-    font-size: 11px;
+    white-space: nowrap;
   }
   .pill.active {
-    color: var(--bg);
-    background: var(--accent);
-    border-color: var(--accent);
+    border-color: var(--amber);
+    color: var(--amber);
+    background: rgba(240,160,75,0.08);
   }
-  .pill.active .count {
-    background: rgba(11,13,16,0.25);
-    color: var(--bg);
-  }
-
-  main { padding: 18px 16px 8px; max-width: 640px; margin: 0 auto; }
-
-  h2.section {
-    font-size: 15px;
+  main { max-width: 640px; margin: 0 auto; padding: 16px; }
+  section.block { margin-bottom: 22px; }
+  section.block > h2 {
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.08em;
     color: var(--muted);
-    margin: 26px 0 12px;
+    margin: 0 0 10px;
   }
-  h2.section:first-child { margin-top: 4px; }
-
   .card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -112,48 +92,44 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 8px;
+    gap: 10px;
+    margin-bottom: 8px;
   }
   .tag {
     display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 10.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.08em;
+    font-weight: 700;
     padding: 3px 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
+    border-radius: 5px;
   }
-  .tag.telecom { color: var(--telecom); background: rgba(74,144,217,0.12); }
-  .tag.ai { color: var(--ai); background: rgba(167,139,250,0.12); }
-  .tag.security { color: var(--security); background: rgba(239,68,68,0.12); }
-  .tag.channel { color: var(--channel); background: rgba(52,211,153,0.12); }
-  .tag.regulatory { color: var(--regulatory); background: rgba(234,179,8,0.12); }
-
+  .tag.telecom { color: var(--blue); background: rgba(91,155,213,0.12); }
+  .tag.ai { color: var(--purple); background: rgba(179,137,240,0.12); }
+  .tag.security { color: var(--red); background: rgba(224,100,90,0.12); }
+  .tag.channel { color: var(--green); background: rgba(108,191,127,0.12); }
+  .tag.regulatory { color: var(--yellow); background: rgba(217,194,92,0.12); }
   .star-btn {
     flex: 0 0 auto;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: none;
     color: var(--muted);
-    font-size: 22px;
+    font-size: 20px;
     cursor: pointer;
-    line-height: 1;
+    margin: -10px -8px 0 0;
   }
-  .star-btn.saved { color: var(--accent); }
-
+  .star-btn.saved { color: var(--amber); }
   h3.headline {
-    font-size: 18px;
-    line-height: 1.3;
+    font-size: 17px;
+    line-height: 1.35;
     margin: 0 0 6px;
+    font-weight: 700;
   }
+  .card.deep h3.headline { font-size: 19px; }
   .byline {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 12.5px;
     margin-bottom: 10px;
   }
   .body-text {
@@ -162,228 +138,224 @@
     margin-bottom: 12px;
   }
   .commentary {
-    border-left: 2px solid var(--accent);
-    padding: 8px 0 8px 12px;
+    border-left: 2px solid var(--amber);
+    padding: 4px 0 4px 12px;
     margin-bottom: 10px;
   }
   .commentary .label {
     display: block;
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 10.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent);
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    font-weight: 700;
     margin-bottom: 4px;
   }
   .commentary p {
     margin: 0;
     font-size: 14px;
-    line-height: 1.55;
+    line-height: 1.5;
   }
   .reaction {
-    background: #0d1013;
+    background: #0e1116;
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 10px 12px;
     margin-bottom: 10px;
     font-size: 13px;
   }
-  .reaction .source {
-    color: var(--muted);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
+  .reaction .src { color: var(--muted); font-size: 11.5px; margin-bottom: 4px; }
   .reaction q { font-style: italic; }
-  .source-link { font-size: 13px; font-weight: 600; }
-
+  .source-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--amber);
+    text-decoration: none;
+    min-height: 44px;
+    line-height: 44px;
+  }
   .noted-list { list-style: none; margin: 0; padding: 0; }
   .noted-list li {
     padding: 12px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 14px;
+    font-size: 13.5px;
     line-height: 1.5;
   }
   .noted-list li:last-child { border-bottom: none; }
-  .noted-list a { color: var(--text); font-weight: 600; }
-  .noted-list .noted-src {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 3px;
+  .noted-list a {
+    color: var(--amber);
+    text-decoration: none;
+    font-weight: 600;
   }
-
-  footer {
-    max-width: 640px;
-    margin: 24px auto 0;
-    padding: 16px;
+  .empty {
     color: var(--muted);
-    font-size: 12px;
-    text-align: center;
-    border-top: 1px solid var(--border);
-  }
-
-  .empty-state {
-    text-align: center;
-    color: var(--muted);
-    padding: 40px 16px;
     font-size: 14px;
+    padding: 30px 0;
+    text-align: center;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 24px 16px 40px;
   }
 </style>
-</head>
-<body>
 
-<header class="top">
-  <h1>The <span>Pulse</span></h1>
-  <div class="meta" id="header-meta">August 24, 2026 &middot; 5 stories &middot; 6 min read</div>
+<header>
+  <h1><span>The</span> Pulse</h1>
+  <div class="meta" id="meta-line">Friday, August 28, 2026 &middot; Central &middot; 12 items &middot; 7 min read</div>
 </header>
 
-<nav class="pills">
-  <div class="pill active" data-filter="all">All <span class="count" id="count-all">0</span></div>
-  <div class="pill" data-filter="telecom">Telecom <span class="count" id="count-telecom">0</span></div>
-  <div class="pill" data-filter="ai">AI <span class="count" id="count-ai">0</span></div>
-  <div class="pill" data-filter="saved">Saved <span class="count" id="count-saved">0</span></div>
-</nav>
+<div class="pills">
+  <div class="pill active" data-filter="all">All <span id="count-all"></span></div>
+  <div class="pill" data-filter="telecom">Telecom <span id="count-telecom"></span></div>
+  <div class="pill" data-filter="ai">AI <span id="count-ai"></span></div>
+  <div class="pill" data-filter="saved">Saved <span id="count-saved"></span></div>
+</div>
 
-<main>
+<main id="main">
 
-  <h2 class="section">Read these two</h2>
+  <section class="block" id="deep-block">
+    <h2>Read these two</h2>
 
-  <article class="card" data-id="verizon-channel-chief-humana" data-topic="channel">
-    <div class="card-top">
-      <div>
+    <article class="card deep" data-topic="ai" id="card-claudeforce">
+      <div class="card-top">
+        <span class="tag ai">AI</span>
+        <button class="star-btn" data-id="claudeforce" aria-label="Save">&#9733;</button>
+      </div>
+      <h3 class="headline">Salesforce Turns Its Own CRM Into a Claude Plugin</h3>
+      <div class="byline">No Jitter &middot; Aug 28, 2026</div>
+      <div class="body-text">Salesforce posted $11.3 billion in Q2 revenue, up 11 percent, and used the earnings call to launch Claudeforce, a deepened tie-up with Anthropic. The centerpiece is "Salesforce in Claude," a plugin letting sellers run CRM workflows and 37 prebuilt sales skills without opening Salesforce's own interface, routed through AIforce, its connector layer for outside models. Pilot customers have it now; open beta lands in September. No pricing has been announced. Benioff called it pairing "Claude's extraordinary intelligence and reasoning with Salesforce's trusted data," which also reads as an admission that reps have been avoiding the actual Salesforce UI for years. It's the first time Salesforce has put the "force" suffix on somebody else's product.</div>
+      <div class="commentary">
+        <span class="label">Dale's read</span>
+        <p>If your team already lives in chat instead of a CRM tab, Claudeforce is the vendor admitting the click-heavy interface was the real problem, not adoption. For a pipeline review, that's a data point: rivals' reps get faster forecast updates and next-best-action prompts without touching a dashboard. Watch what this does to CPQ integrations industry-wide. If Claude becomes the front door to CRM data, every UCaaS sales stack bolting on AI coaching needs a plugin story too, not just another dashboard.</p>
+      </div>
+      <a class="source-link" href="https://www.nojitter.com/ai-automation/salesforce-q2-revenue-jumps-11-percent-launches-claudeforce" target="_blank" rel="noopener">Read at No Jitter &rarr;</a>
+    </article>
+
+    <article class="card deep" data-topic="channel" id="card-ccg">
+      <div class="card-top">
         <span class="tag channel">Channel</span>
+        <button class="star-btn" data-id="ccg" aria-label="Save">&#9733;</button>
       </div>
-      <button class="star-btn" data-id="verizon-channel-chief-humana" aria-label="Save story">&#9734;</button>
-    </div>
-    <h3 class="headline">Verizon's channel chief bolts for a health insurer, and partners are already nervous</h3>
-    <div class="byline">Channel Dive &middot; August 10, 2026</div>
-    <div class="body-text">
-      Mark Tina, a 23-year Verizon veteran and VP of Indirect Partner Sales, is leaving to run national partner sales and distribution at Humana, in a newly created role that has nothing to do with telecom. Tina built Verizon's indirect channel from what he called "only single-digit indirect distribution" into "healthy double digits," running a 700-person org that reported to Verizon Business CEO Kyle Malady. John Constantino, Verizon's VP of Business Sales, inherits the indirect book on top of his existing job. No word yet on whether indirect gets a dedicated leader again or stays folded under Constantino permanently. Partners aren't hiding their nerves: Connected Solutions Group CEO Michael Pittman called Tina "a champion for the programs" and "one of the better human beings I have experienced in business."
-    </div>
-    <div class="commentary">
-      <span class="label">Dale's read</span>
-      <p>Losing the executive who built your indirect motion from scratch is bad enough; losing them to an industry with nothing to do with telecom means this wasn't about a better comp plan down the street. Any TSD running on personal relationships instead of program mechanics should be nervous. If Constantino treats indirect as a side project, expect slower answers out of Verizon's channel org for a quarter or two. Get a second contact on file now.</p>
-    </div>
-    <a class="source-link" href="https://www.channeldive.com/news/verizon-channel-chief-leaves-for-health-insurer-humana/827474/" target="_blank" rel="noopener">Read at Channel Dive &rarr;</a>
-  </article>
-
-  <article class="card" data-id="ai-identity-fraud-surge" data-topic="security">
-    <div class="card-top">
-      <div>
-        <span class="tag security">Security</span>
+      <h3 class="headline">AI Is Eating the Referral, So One TSD Built a Database to Fight Back</h3>
+      <div class="byline">Channel Dive &middot; Aug 25-26, 2026</div>
+      <div class="body-text">A new AI Revenue Institute survey of 521 B2B buyers finds over half have dropped a vendor after an AI tool flagged a shortcoming, and 82 percent say they'd get more skeptical of whoever referred that vendor in the first place. Cloud Communications Group's Tyler Dool put it plainly: "now you have to go into those same conversations knowing that a second opinion is extremely easy to get." CCG's answer, launching in September, is InsightForge, a free decision-intelligence platform built on 19 years of its own consulting data, meant to give purchasing committees visibility a chatbot can't fake. Other advisors caution frontier models still lack real vendor data and can hallucinate, which is the whole argument for the tool existing.</div>
+      <div class="commentary">
+        <span class="label">Dale's read</span>
+        <p>This is the channel model's actual exposure, and it isn't AI selling for the prospect, it's AI second-guessing the human who referred you. A TSD or agent relationship used to be worth something because the buyer trusted the recommender's judgment; now that judgment gets fact-checked live by a free chatbot. CCG's bet is proprietary data beats a general model's guesswork. If you sell through advisors, ask what data they actually hold that a chatbot doesn't, because "relationship" alone isn't the moat it was two years ago.</p>
       </div>
-      <button class="star-btn" data-id="ai-identity-fraud-surge" aria-label="Save story">&#9734;</button>
-    </div>
-    <h3 class="headline">Fake IDs made by AI are now a five-dollar problem, and search interest is up 3,800 percent</h3>
-    <div class="byline">CX Today &middot; August 24, 2026</div>
-    <div class="body-text">
-      Global search interest in "AI identity fraud" is up roughly 3,826 percent over the past year to around 14,000 monthly searches, with a 24 percent jump in just the last three months. The driver is access, not sophistication. Ben O'Brien of ID Card Centre put it plainly: forging documents "used to require skill; now it just requires access to a generator." That covers both AI-faked government IDs and synthetic identities blending real stolen data with fabricated details, and both are built to slide past the quick visual check a front-line employee actually has time to run. Hospitality, retail, recruitment, healthcare, real estate and education carry the most exposure, anywhere a remote interaction or a rushed decision stands in for real verification.
-    </div>
-    <div class="commentary">
-      <span class="label">Dale's read</span>
-      <p>This isn't a contact-center trend piece, it's a prospecting hook. Every business that verifies identity over a call or a chat now has a documented, quantified reason to fix fraud controls this quarter instead of next. Lead with "3,800 percent," not "synthetic identity." The number gets a meeting, the jargon gets a blank stare. Anyone still selling voice or contact center on features alone is leaving an easy urgency argument sitting on the table.</p>
-    </div>
-    <a class="source-link" href="https://www.cxtoday.com/security-privacy-compliance/ai-identity-fraud-interest-increases-almost-4000-as-fake-ids-become-easier-to-create/" target="_blank" rel="noopener">Read at CX Today &rarr;</a>
-  </article>
+      <a class="source-link" href="https://www.channeldive.com/news/tech-advisor-launches-platform-guide-enterprise-buyers-through-committee-cloud-communications-group/828889/" target="_blank" rel="noopener">Read at Channel Dive &rarr;</a>
+      &nbsp;&middot;&nbsp;
+      <a class="source-link" href="https://www.channeldive.com/news/ai-tools-new-second-opinion-b2b-purchasing-ccg-airi-rise-technology-advisors/828771/" target="_blank" rel="noopener">Survey details &rarr;</a>
+    </article>
+  </section>
 
-  <h2 class="section">Worth knowing</h2>
+  <section class="block" id="skim-block">
+    <h2>Worth knowing</h2>
 
-  <article class="card" data-id="sfr-cyberattack-fiber-tool" data-topic="security">
-    <div class="card-top">
-      <div>
-        <span class="tag security">Security</span>
-      </div>
-      <button class="star-btn" data-id="sfr-cyberattack-fiber-tool" aria-label="Save story">&#9734;</button>
-    </div>
-    <h3 class="headline">France's SFR gets hit, customer data walks out through a fiber management tool</h3>
-    <div class="byline">Light Reading &middot; August 21, 2026</div>
-    <div class="body-text">
-      French carrier SFR confirmed a breach after attackers exploited vulnerabilities in a tool used to manage fiber connections, exposing customer postal addresses, emails and phone numbers. SFR hasn't said how many subscribers are affected, but says it suspended access to the affected systems immediately and has since added new security measures.
-    </div>
-    <div class="commentary">
-      <span class="label">Dale's read</span>
-      <p>Another carrier learns that provisioning and back-office tools are as much an attack surface as the network itself. Worth raising with any prospect who assumes their provider's plumbing isn't their problem.</p>
-    </div>
-    <a class="source-link" href="https://www.lightreading.com/security/eurobites-france-s-sfr-falls-prey-to-cyberattack-report" target="_blank" rel="noopener">Read at Light Reading &rarr;</a>
-  </article>
-
-  <article class="card" data-id="openai-private-safety-processing" data-topic="ai">
-    <div class="card-top">
-      <div>
+    <article class="card" data-topic="ai" id="card-coaching">
+      <div class="card-top">
         <span class="tag ai">AI</span>
+        <button class="star-btn" data-id="coaching" aria-label="Save">&#9733;</button>
       </div>
-      <button class="star-btn" data-id="openai-private-safety-processing" aria-label="Save story">&#9734;</button>
-    </div>
-    <h3 class="headline">OpenAI tries to make enterprises comfortable handing over sensitive data</h3>
-    <div class="byline">CX Today &middot; August 20, 2026</div>
-    <div class="body-text">
-      OpenAI unveiled Private Safety Processing, built on zero data retention so prompts and responses aren't kept after a request completes. The pitch targets enterprises sitting on financial records, health data or confidential business plans who've held off adopting AI tools over exactly that exposure. Automated risk detection runs without giving OpenAI staff access to retained content, with a choice between enterprise-controlled and encrypted customer-key infrastructure. Rollout starts in September.
-    </div>
-    <div class="commentary">
-      <span class="label">Dale's read</span>
-      <p>Every AI vendor bolted onto a sales or CX tool eventually gets the "where does my data go" question. OpenAI just published the answer it wants copied. Expect UCaaS and CCaaS vendors to borrow this language fast. If a vendor can't answer as cleanly, ask them why.</p>
-    </div>
-    <a class="source-link" href="https://www.cxtoday.com/security-privacy-compliance/openai-wants-enterprises-to-trust-its-frontier-models-with-sensitive-customer-data/" target="_blank" rel="noopener">Read at CX Today &rarr;</a>
-  </article>
+      <h3 class="headline">Real-Time AI Coaching Is One Setting Away From Surveillance</h3>
+      <div class="byline">No Jitter &middot; Aug 28, 2026</div>
+      <div class="body-text">IDC finds 24 percent of organizations rank AI-enabled coaching platforms among their top three AI priorities for the next 18 months, the same tools that score tone, sentiment, and script adherence on live calls. IDC's Amy Loomis says the line between coaching and surveillance is intent, not the technology. Strike Graph's Justin Beals frames the fix as transparency: if the rep sees the same score the manager sees, it's coaching, not monitoring.</div>
+      <div class="commentary">
+        <span class="label">Dale's read</span>
+        <p>Rolling this out on your own team without disclosure is the fastest way to torch morale over a tool that was supposed to help. If you're piloting call-scoring AI, put the dashboard in front of reps first, not last, and don't let a probabilistic sentiment score decide a review by itself.</p>
+      </div>
+      <a class="source-link" href="https://www.nojitter.com/ai-automation/real-time-ai-coaching-is-becoming-continuous-surveillance" target="_blank" rel="noopener">Read at No Jitter &rarr;</a>
+    </article>
 
-  <article class="card" data-id="data-center-capex-3trillion-2030" data-topic="ai">
-    <div class="card-top">
-      <div>
+    <article class="card" data-topic="ai" id="card-lightyear">
+      <div class="card-top">
         <span class="tag ai">AI</span>
+        <button class="star-btn" data-id="lightyear" aria-label="Save">&#9733;</button>
       </div>
-      <button class="star-btn" data-id="data-center-capex-3trillion-2030" aria-label="Save story">&#9734;</button>
-    </div>
-    <h3 class="headline">Data center spending is on pace to blow past three trillion dollars by 2030</h3>
-    <div class="byline">Light Reading &middot; August 18, 2026</div>
-    <div class="body-text">
-      Dell'Oro Group now forecasts worldwide data center capex surpassing $3 trillion by 2030, with high-end AI accelerators claiming the largest share. A newly tracked segment, AI-specialized cloud providers and model builders, is growing at nearly a 60 percent compound annual rate, well ahead of every other customer category. General-purpose servers get pulled along too, as inference and agentic workloads add demand beyond pure model training.
-    </div>
-    <div class="commentary">
-      <span class="label">Dale's read</span>
-      <p>The number is big enough to be numbing, so use it differently: it funds every AI feature about to land in your CRM, dialer and contact center platform, whether the prospect asked for it or not. This capex boom is upstream of the pitch you'll be giving in six months.</p>
-    </div>
-    <a class="source-link" href="https://www.lightreading.com/ai-machine-learning/ai-buildout-maintains-momentum-as-data-center-capex-surpasses-3t-by-2030-dell-oro" target="_blank" rel="noopener">Read at Light Reading &rarr;</a>
-  </article>
+      <h3 class="headline">Lightyear Ships an Agent That Actually Runs the RFP</h3>
+      <div class="byline">RCR Wireless &middot; Aug 25, 2026</div>
+      <div class="body-text">Lightyear's new Dispatch platform routes natural-language requests to specialized agents: one sources and normalizes carrier bids in hours instead of the usual weeks of RFP cycling, another tracks multi-site, multi-carrier installs and auto-escalates delays. It's live now for existing customers, with renewals and invoice disputes on the 2027 roadmap. No pricing disclosed.</div>
+      <div class="commentary">
+        <span class="label">Dale's read</span>
+        <p>An agent that compresses carrier quoting from weeks to hours is a direct hit on the "give me a week and I'll get you options" line half this beat still runs. Enterprise buyers comparing bids faster means less room to control the timeline on your terms, not more.</p>
+      </div>
+      <a class="source-link" href="https://rcrwireless.com/20260825/ai/lightyear-dispatch-agentic-ai" target="_blank" rel="noopener">Read at RCR Wireless &rarr;</a>
+    </article>
 
-  <h2 class="section">Also noted</h2>
-  <ul class="noted-list">
-    <li>
-      Spectrum's brand takes over Cox's footprint by mid-September, with U.S.-based customer service and a wage floor for reps who move over.
-      <a href="https://www.lightreading.com/cable-technology/charter-cox-deal-is-a-wrap-with-spectrum-brand-to-take-over-within-a-year" target="_blank" rel="noopener">Light Reading &rarr;</a>
-    </li>
-    <li>
-      Lumen still won't commit to an end-of-life date for voice, and partners say they got a nudge toward the door instead of a migration plan.
-      <a href="https://www.channeldive.com/news/lumen-execs-defend-voice-exit-copper-q2/827269/" target="_blank" rel="noopener">Channel Dive &rarr;</a>
-    </li>
-    <li>
-      AvePoint's MSP channel delivered two-thirds of its record $29.2 million in net-new ARR last quarter.
-      <a href="https://www.channeldive.com/news/avepoint-managed-services-platform-smb-growth/827343/" target="_blank" rel="noopener">Channel Dive &rarr;</a>
-    </li>
-    <li>
-      Lumen is betting its fiber network on east-west AI traffic between data centers, and admits it doesn't know how much workload eventually shifts to the edge.
-      <a href="https://rcrwireless.com/20260814/network-infrastructure/lumen-east-west-ai-edge-north-south-in-play" target="_blank" rel="noopener">RCR Wireless &rarr;</a>
-    </li>
-    <li>
-      The FCC punted the AT&amp;T-Duke Energy pole attachment fight to arbitration instead of ruling on it.
-      <a href="https://broadbandbreakfast.com/fcc-wont-hear-at-t-duke-pole-case-right-away/" target="_blank" rel="noopener">Broadband Breakfast &rarr;</a>
-    </li>
-  </ul>
+    <article class="card" data-topic="telecom" id="card-poly">
+      <div class="card-top">
+        <span class="tag telecom">Telecom</span>
+        <button class="star-btn" data-id="poly" aria-label="Save">&#9733;</button>
+      </div>
+      <h3 class="headline">HP Folds Poly's Headsets Into Its IT Management Platform</h3>
+      <div class="byline">UC Today &middot; Aug 27, 2026</div>
+      <div class="body-text">HP posted record Q3 revenue of $15.7 billion, up 12.5 percent, even as PC shipments fell 16 percent. The growth came from "attached" businesses, peripherals, collaboration gear, and services, now a third of division gross profit. Poly Lens, the cloud management layer for headsets and video endpoints, is built into HP's Workforce Experience Platform, putting collaboration devices under the same dashboard as laptops and printers.</div>
+      <div class="commentary">
+        <span class="label">Dale's read</span>
+        <p>HP is betting IT buys collaboration hardware where it already manages endpoints, which narrows the lane for anyone pitching UC gear as its own decision. If your pitch depends on a standalone device conversation, expect more IT buyers who already treat headsets as a line item on the laptop refresh, not their own RFP.</p>
+      </div>
+      <a class="source-link" href="https://www.uctoday.com/hp-q3-earnings-poly-moves-into-workplace-platform" target="_blank" rel="noopener">Read at UC Today &rarr;</a>
+    </article>
+
+    <article class="card" data-topic="channel" id="card-barracuda">
+      <div class="card-top">
+        <span class="tag channel">Channel</span>
+        <button class="star-btn" data-id="barracuda" aria-label="Save">&#9733;</button>
+      </div>
+      <h3 class="headline">Barracuda Admits Its Partners Aren't Cleanly MSP or Reseller Anymore</h3>
+      <div class="byline">Channel Dive &middot; Aug 27, 2026</div>
+      <div class="body-text">Barracuda merged its separate MSP and reseller partner tiers into one Partner Success Program after conceding that a growing share of partners run both models at once and were only getting revenue credit for the resale half. Channels SVP Michelle Hodges: "We cannot dictate how the customer needs to consume their technology, or how the partner delivers that technology."</div>
+      <div class="commentary">
+        <span class="label">Dale's read</span>
+        <p>Comp models built around a clean MSP-versus-reseller line are already out of date; most partners on this beat blend transactional and managed revenue and get shortchanged by programs that only count one. If your own partner comp still forces that binary choice, this is a preview of the complaint you'll hear next.</p>
+      </div>
+      <a class="source-link" href="https://www.channeldive.com/news/barracuda-merges-msp-reseller-tracks-hybrid-partners-grow-michelle-hodges/829000/" target="_blank" rel="noopener">Read at Channel Dive &rarr;</a>
+    </article>
+
+    <article class="card" data-topic="regulatory" id="card-bead">
+      <div class="card-top">
+        <span class="tag regulatory">Regulatory</span>
+        <button class="star-btn" data-id="bead" aria-label="Save">&#9733;</button>
+      </div>
+      <h3 class="headline">Every State's BEAD Plan Is Finally Approved, $18 Billion Now Moves</h3>
+      <div class="byline">Broadband Breakfast &middot; Aug 28, 2026</div>
+      <div class="body-text">Illinois's approval this week closed out all 56 states and territories, clearing $18.19 billion in broadband deployment spending across 3.79 million locations: 63 percent fiber, 22 percent satellite, 13 percent fixed wireless. A separate $22.5 billion in non-deployment funding is still waiting on NTIA guidance on how it can be used.</div>
+      <div class="commentary">
+        <span class="label">Dale's read</span>
+        <p>Fiber-funded builds mean new last-mile competition showing up in markets that didn't have a credible alternative to the incumbent cable or telco. Track which of your territories sit inside a BEAD-funded footprint, because a subsidized new entrant changes the bundle conversation whether or not the build finishes on schedule.</p>
+      </div>
+      <a class="source-link" href="https://broadbandbreakfast.com/with-all-bead-plans-approved-states-and-territories-set-to-spend-18-2-billion-on-deployment/" target="_blank" rel="noopener">Read at Broadband Breakfast &rarr;</a>
+    </article>
+
+  </section>
+
+  <section class="block" id="noted-block">
+    <h2>Also noted</h2>
+    <ul class="noted-list">
+      <li data-topic="channel">TD Synnex bolted Microsoft and Cisco deal data plus a Slack and Webex AI assistant onto its PartnerFirst portal, chasing the 85 percent of channel deals that already route through a distributor. <a href="https://www.channeldive.com/news/td-synnex-partnerfirst-platform-microsoft-cisco/829011/" target="_blank" rel="noopener">Channel Dive &rarr;</a></li>
+      <li data-topic="channel">A third of buyers weighing an MSP switch blame a weak AI story, per a Corsica-commissioned survey; trust in the incumbent MSP sits at just 35 percent even where satisfaction is high. <a href="https://www.channeldive.com/news/msps-lacking-ai-deployment-expertise-risk-customer-churn/828634/" target="_blank" rel="noopener">Channel Dive &rarr;</a></li>
+      <li data-topic="telecom">AT&amp;T sued Charter over "fiber-powered" ads for Spectrum's mostly-coax network, a fight that widens now that Charter's newly absorbed Cox footprint uses the same phrase. <a href="https://broadbandbreakfast.com/at-t-sues-charter-for-fiber-powered-internet-ads/" target="_blank" rel="noopener">Broadband Breakfast &rarr;</a></li>
+      <li data-topic="security">Anthropic expanded access to its Mythos 5 security model, but only through partner platforms, meaning enterprises pick a security vendor first and get the AI as a side effect. <a href="https://www.uctoday.com/anthropic-expands-mythos-5-access-but-vendors-hold-the-keys" target="_blank" rel="noopener">UC Today &rarr;</a></li>
+      <li data-topic="regulatory">FCC's looser broadband label rules take effect September 14, letting providers swap the full label for a hyperlink and dropping the machine-readable data mandate. <a href="https://broadbandbreakfast.com/fccs-streamlined-broadband-label-rules-take-effect-september-14/" target="_blank" rel="noopener">Broadband Breakfast &rarr;</a></li>
+    </ul>
+  </section>
+
+  <div class="empty" id="empty-state" style="display:none;">Nothing here yet. Star a card and it'll show up in Saved.</div>
 
 </main>
 
-<footer>
-  Dale's read. Built before dawn, read on the way to coffee. Nothing here is investment advice.
-</footer>
+<footer>The Pulse runs on live research, not vibes. Dates are real publication dates, not today's stamp.</footer>
 
 <script>
 (function () {
-  var SAVE_KEY = 'pulse-saved';
+  var STORAGE_KEY = 'pulse-saved';
 
   function loadSaved() {
     try {
-      var raw = localStorage.getItem(SAVE_KEY);
+      var raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return [];
       var parsed = JSON.parse(raw);
       return Array.isArray(parsed) ? parsed : [];
@@ -392,116 +364,105 @@
     }
   }
 
-  function persistSaved(list) {
+  function saveSaved(list) {
     try {
-      localStorage.setItem(SAVE_KEY, JSON.stringify(list));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
     } catch (e) {
-      /* storage unavailable, degrade silently */
+      /* storage unavailable, fail silently */
     }
   }
 
   var saved = loadSaved();
 
-  function isSaved(id) {
-    return saved.indexOf(id) !== -1;
-  }
+  function isSaved(id) { return saved.indexOf(id) !== -1; }
 
   function toggleSaved(id) {
     var idx = saved.indexOf(id);
-    if (idx === -1) {
-      saved.push(id);
-    } else {
-      saved.splice(idx, 1);
-    }
-    persistSaved(saved);
-    refreshStars();
-    updateCounts();
+    if (idx === -1) saved.push(id); else saved.splice(idx, 1);
+    saveSaved(saved);
   }
 
-  function refreshStars() {
-    var buttons = document.querySelectorAll('.star-btn');
-    buttons.forEach(function (btn) {
-      var id = btn.getAttribute('data-id');
-      if (isSaved(id)) {
-        btn.classList.add('saved');
-        btn.innerHTML = '&#9733;';
-      } else {
-        btn.classList.remove('saved');
-        btn.innerHTML = '&#9734;';
-      }
-    });
-  }
-
-  document.querySelectorAll('.star-btn').forEach(function (btn) {
+  var starBtns = document.querySelectorAll('.star-btn');
+  starBtns.forEach(function (btn) {
+    var id = btn.getAttribute('data-id');
+    if (isSaved(id)) btn.classList.add('saved');
     btn.addEventListener('click', function () {
-      toggleSaved(btn.getAttribute('data-id'));
+      toggleSaved(id);
+      btn.classList.toggle('saved');
+      updateCounts();
+      applyFilter(currentFilter);
     });
   });
 
-  var cards = document.querySelectorAll('.card');
-  var pills = document.querySelectorAll('.pill');
-  var currentFilter = 'all';
+  var TELECOM_TAGS = ['telecom', 'channel', 'regulatory', 'security'];
 
-  function cardMatches(card, filter) {
-    var topic = card.getAttribute('data-topic');
+  function allTopicNodes() {
+    return document.querySelectorAll('[data-topic]');
+  }
+
+  function nodeMatchesFilter(node, filter) {
+    var topic = node.getAttribute('data-topic');
     if (filter === 'all') return true;
     if (filter === 'ai') return topic === 'ai';
-    if (filter === 'telecom') return topic === 'telecom' || topic === 'channel' || topic === 'regulatory' || topic === 'security';
-    if (filter === 'saved') return isSaved(card.getAttribute('data-id'));
+    if (filter === 'telecom') return TELECOM_TAGS.indexOf(topic) !== -1;
+    if (filter === 'saved') {
+      var starBtn = node.querySelector ? node.querySelector('.star-btn') : null;
+      var id = node.getAttribute('id');
+      if (starBtn) return isSaved(starBtn.getAttribute('data-id'));
+      // noted list items: find nearest id via data-note-id fallback
+      return false;
+    }
     return true;
   }
 
+  var currentFilter = 'all';
+
   function applyFilter(filter) {
     currentFilter = filter;
-    pills.forEach(function (p) {
-      p.classList.toggle('active', p.getAttribute('data-filter') === filter);
-    });
-    var visibleCount = 0;
-    cards.forEach(function (card) {
-      var match = cardMatches(card, filter);
-      card.style.display = match ? '' : 'none';
-      if (match) visibleCount++;
+    var anyVisible = false;
+    allTopicNodes().forEach(function (node) {
+      var match = nodeMatchesFilter(node, filter);
+      node.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
     });
 
-    // toggle section headers when everything under them is hidden
-    document.querySelectorAll('h2.section').forEach(function (h2) {
-      var el = h2.nextElementSibling;
-      var anyVisible = false;
-      while (el && el.tagName !== 'H2') {
-        if (el.classList && el.classList.contains('card') && el.style.display !== 'none') anyVisible = true;
-        if (el.classList && el.classList.contains('noted-list')) anyVisible = true;
-        el = el.nextElementSibling;
-      }
-      h2.style.display = anyVisible ? '' : 'none';
+    // hide section headers / blocks if nothing inside them is visible
+    ['deep-block', 'skim-block', 'noted-block'].forEach(function (blockId) {
+      var block = document.getElementById(blockId);
+      var visibleChildren = block.querySelectorAll('[data-topic]:not([style*="display: none"])');
+      block.style.display = visibleChildren.length ? '' : 'none';
     });
+
+    document.getElementById('empty-state').style.display = anyVisible ? 'none' : 'block';
   }
 
-  function updateCounts() {
-    var all = cards.length;
-    var telecomCount = 0, aiCount = 0, savedCount = 0;
-    cards.forEach(function (card) {
-      var topic = card.getAttribute('data-topic');
-      if (topic === 'ai') aiCount++;
-      if (topic === 'telecom' || topic === 'channel' || topic === 'regulatory' || topic === 'security') telecomCount++;
-      if (isSaved(card.getAttribute('data-id'))) savedCount++;
-    });
-    document.getElementById('count-all').textContent = all;
-    document.getElementById('count-telecom').textContent = telecomCount;
-    document.getElementById('count-ai').textContent = aiCount;
-    document.getElementById('count-saved').textContent = savedCount;
-  }
-
+  var pills = document.querySelectorAll('.pill');
   pills.forEach(function (pill) {
     pill.addEventListener('click', function () {
+      pills.forEach(function (p) { p.classList.remove('active'); });
+      pill.classList.add('active');
       applyFilter(pill.getAttribute('data-filter'));
     });
   });
 
-  refreshStars();
+  function updateCounts() {
+    var nodes = allTopicNodes();
+    var total = nodes.length;
+    var ai = 0, telecom = 0, savedCount = 0;
+    nodes.forEach(function (node) {
+      var topic = node.getAttribute('data-topic');
+      if (topic === 'ai') ai++;
+      if (TELECOM_TAGS.indexOf(topic) !== -1) telecom++;
+      var starBtn = node.querySelector ? node.querySelector('.star-btn') : null;
+      if (starBtn && isSaved(starBtn.getAttribute('data-id'))) savedCount++;
+    });
+    document.getElementById('count-all').textContent = '(' + total + ')';
+    document.getElementById('count-telecom').textContent = '(' + telecom + ')';
+    document.getElementById('count-ai').textContent = '(' + ai + ')';
+    document.getElementById('count-saved').textContent = '(' + savedCount + ')';
+  }
+
   updateCounts();
   applyFilter('all');
 })();
 </script>
-
-</body>
-</html>
