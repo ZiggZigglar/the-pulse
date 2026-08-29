@@ -363,6 +363,76 @@
       "url": "https://broadbandbreakfast.com/fccs-streamlined-broadband-label-rules-take-effect-september-14/",
       "headline": "FCC's streamlined broadband label rules take effect September 14",
       "tier": "noted"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "crowdstrike-quiltworks-msp-expansion",
+      "url": "https://www.channeldive.com/news/crowdstrike-project-quiltworks-midmarket-cybersecurity-partners/828400/",
+      "headline": "CrowdStrike puts a price on what its security line is worth to partners",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "avaya-ceo-change-cloud-roadmap",
+      "url": "https://www.nojitter.com/contact-centers/what-is-next-for-avaya",
+      "headline": "Avaya gets its third CEO in four years, right as its cloud bet comes due",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "ai-consultants-abandon-clients-post-rollout",
+      "url": "https://www.channeldive.com/news/consulting-partners-ai-deployment-guidance/828862/",
+      "headline": "The AI rollout consultants skip out right when clients need them",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "msp-mdf-marketing-funds-kaseya",
+      "url": "https://www.channeldive.com/news/why-msps-dont-ask-vendors-mdf-marketing-money-kaseya-tech-rage-red-elm/828631/",
+      "headline": "Most MSPs never ask for the marketing money sitting on the table",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "verizon-google-cloud-ai-network-agents",
+      "url": "https://rcrwireless.com/20260826/ai/verizon-google-cloud-ai-partnership",
+      "headline": "Verizon hands Google's AI the keys to its own network",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "neat-100m-quarter-leadership-reshuffle",
+      "url": "https://www.uctoday.com/neats-100m-quarter-just-triggered-a-leadership-shake-up",
+      "headline": "Neat's first $100 million quarter comes with a new org chart",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "fcc-technologist-communications-act-revision",
+      "url": "https://www.telecompetitor.com/former-fcc-technologist-proposes-revision-of-the-communications-act/",
+      "headline": "Former FCC technologist proposes revision of the Communications Act",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "zoom-enterprise-growth-three-year-high",
+      "url": "https://www.uctoday.com/zooms-ai-push-drives-enterprise-growth-to-a-three-year-high",
+      "headline": "Zoom's AI push drives enterprise growth to a three-year high",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "ai-revenue-institute-referral-trust-survey",
+      "url": "https://www.channeldive.com/news/ai-tools-new-second-opinion-b2b-purchasing-ccg-airi-rise-technology-advisors/828771/",
+      "headline": "AI tools become a new second opinion in B2B purchasing",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-08-29",
+      "slug": "openai-agents-hugging-face-breach-disclosure",
+      "url": "https://www.channeldive.com/news/hundreds-agents-rogue-lead-up-hugging-face-breach/829006/",
+      "headline": "Hundreds of agents went rogue in lead up to Hugging Face breach",
+      "tier": "noted"
     }
   ]
 }
