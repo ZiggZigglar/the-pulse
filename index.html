@@ -1,5 +1,8 @@
+<!DOCTYPE html>
+<html lang="en" data-edition-date="2026-08-28">
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Pulse - August 28, 2026</title>
 <style>
   :root {
@@ -201,6 +204,8 @@
     padding: 24px 16px 40px;
   }
 </style>
+</head>
+<body>
 
 <header>
   <h1><span>The</span> Pulse</h1>
@@ -343,97 +348,209 @@
     </ul>
   </section>
 
-  <div class="empty" id="empty-state" style="display:none;">Nothing here yet. Star a card and it'll show up in Saved.</div>
+  <section class="block" id="saved-block" style="display:none;">
+    <h2>Saved for later</h2>
+    <div id="saved-view"></div>
+  </section>
+
+  <div class="empty" id="empty-state" style="display:none;"></div>
 
 </main>
 
-<footer>The Pulse runs on live research, not vibes. Dates are real publication dates, not today's stamp.</footer>
+<footer>The Pulse runs on live research, not vibes. Dates are real publication dates, not today's stamp. Saved stories stick around after tomorrow's edition replaces this page.</footer>
 
 <script>
 (function () {
   var STORAGE_KEY = 'pulse-saved';
+  var EDITION_DATE = document.documentElement.getAttribute('data-edition-date');
+  var ARCHIVE_BASE = 'archive/';
+  var TELECOM_TAGS = ['telecom', 'channel', 'regulatory', 'security'];
 
   function loadSaved() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return [];
       var parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? parsed : [];
+      if (!Array.isArray(parsed)) return [];
+      var changed = false;
+      var migrated = parsed.map(function (entry) {
+        if (typeof entry === 'string') {
+          changed = true;
+          var article = document.getElementById('card-' + entry);
+          return article ? buildRecord(article) : null;
+        }
+        return entry;
+      }).filter(Boolean);
+      if (changed) persistSaved(migrated);
+      return migrated;
     } catch (e) {
       return [];
     }
   }
 
-  function saveSaved(list) {
+  function persistSaved(list) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
     } catch (e) {
-      /* storage unavailable, fail silently */
+      /* storage unavailable or full, fail silently */
     }
+  }
+
+  function buildRecord(article) {
+    var starBtn = article.querySelector('.star-btn');
+    var headlineEl = article.querySelector('.headline');
+    var bylineEl = article.querySelector('.byline');
+    var linkEl = article.querySelector('.source-link');
+    return {
+      id: starBtn ? starBtn.getAttribute('data-id') : article.id.replace('card-', ''),
+      headline: headlineEl ? headlineEl.textContent.trim() : '',
+      tag: article.getAttribute('data-topic') || 'telecom',
+      pub: bylineEl ? bylineEl.textContent.trim() : '',
+      url: linkEl ? linkEl.getAttribute('href') : '#',
+      date: EDITION_DATE
+    };
   }
 
   var saved = loadSaved();
+  var currentFilter = 'all';
 
-  function isSaved(id) { return saved.indexOf(id) !== -1; }
-
-  function toggleSaved(id) {
-    var idx = saved.indexOf(id);
-    if (idx === -1) saved.push(id); else saved.splice(idx, 1);
-    saveSaved(saved);
+  function findIndex(id) {
+    for (var i = 0; i < saved.length; i++) if (saved[i].id === id) return i;
+    return -1;
   }
 
-  var starBtns = document.querySelectorAll('.star-btn');
-  starBtns.forEach(function (btn) {
+  function isSaved(id) { return findIndex(id) !== -1; }
+
+  function toggleSaved(article) {
+    var starBtn = article.querySelector('.star-btn');
+    var id = starBtn.getAttribute('data-id');
+    var idx = findIndex(id);
+    if (idx === -1) saved.push(buildRecord(article));
+    else saved.splice(idx, 1);
+    persistSaved(saved);
+  }
+
+  function removeSaved(id) {
+    saved = saved.filter(function (r) { return r.id !== id; });
+    persistSaved(saved);
+  }
+
+  document.querySelectorAll('.star-btn').forEach(function (btn) {
     var id = btn.getAttribute('data-id');
     if (isSaved(id)) btn.classList.add('saved');
     btn.addEventListener('click', function () {
-      toggleSaved(id);
+      toggleSaved(btn.closest('article'));
       btn.classList.toggle('saved');
       updateCounts();
-      applyFilter(currentFilter);
+      if (currentFilter === 'saved') renderSavedView();
     });
   });
 
-  var TELECOM_TAGS = ['telecom', 'channel', 'regulatory', 'security'];
+  function renderSavedView() {
+    var view = document.getElementById('saved-view');
+    var block = document.getElementById('saved-block');
+    var emptyState = document.getElementById('empty-state');
+    view.innerHTML = '';
 
-  function allTopicNodes() {
-    return document.querySelectorAll('[data-topic]');
-  }
-
-  function nodeMatchesFilter(node, filter) {
-    var topic = node.getAttribute('data-topic');
-    if (filter === 'all') return true;
-    if (filter === 'ai') return topic === 'ai';
-    if (filter === 'telecom') return TELECOM_TAGS.indexOf(topic) !== -1;
-    if (filter === 'saved') {
-      var starBtn = node.querySelector ? node.querySelector('.star-btn') : null;
-      var id = node.getAttribute('id');
-      if (starBtn) return isSaved(starBtn.getAttribute('data-id'));
-      // noted list items: find nearest id via data-note-id fallback
-      return false;
+    if (!saved.length) {
+      block.style.display = 'none';
+      emptyState.textContent = "Nothing saved yet. Star a card and it'll show up here, tomorrow included.";
+      emptyState.style.display = 'block';
+      return;
     }
-    return true;
-  }
 
-  var currentFilter = 'all';
+    block.style.display = '';
+    emptyState.style.display = 'none';
+
+    var ordered = saved.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    ordered.forEach(function (r) {
+      var isToday = r.date === EDITION_DATE;
+      var jumpHref = isToday ? ('#card-' + r.id) : (ARCHIVE_BASE + r.date + '.html#card-' + r.id);
+
+      var row = document.createElement('article');
+      row.className = 'card';
+
+      var top = document.createElement('div');
+      top.className = 'card-top';
+      var tag = document.createElement('span');
+      tag.className = 'tag ' + r.tag;
+      tag.textContent = r.tag;
+      var removeBtn = document.createElement('button');
+      removeBtn.className = 'star-btn saved';
+      removeBtn.setAttribute('aria-label', 'Remove from saved');
+      removeBtn.innerHTML = '&#9733;';
+      removeBtn.addEventListener('click', function () {
+        removeSaved(r.id);
+        updateCounts();
+        renderSavedView();
+      });
+      top.appendChild(tag);
+      top.appendChild(removeBtn);
+
+      var h3 = document.createElement('h3');
+      h3.className = 'headline';
+      h3.textContent = r.headline;
+
+      var byline = document.createElement('div');
+      byline.className = 'byline';
+      byline.textContent = r.pub + ' · saved ' + r.date;
+
+      var readLink = document.createElement('a');
+      readLink.className = 'source-link';
+      readLink.href = r.url;
+      readLink.target = '_blank';
+      readLink.rel = 'noopener';
+      readLink.textContent = 'Read the story →';
+
+      var sep = document.createTextNode(' · ');
+
+      var jumpLink = document.createElement('a');
+      jumpLink.className = 'source-link';
+      jumpLink.href = jumpHref;
+      jumpLink.textContent = (isToday ? 'Jump to card' : 'Revisit that edition') + ' →';
+
+      row.appendChild(top);
+      row.appendChild(h3);
+      row.appendChild(byline);
+      row.appendChild(readLink);
+      row.appendChild(sep);
+      row.appendChild(jumpLink);
+      view.appendChild(row);
+    });
+  }
 
   function applyFilter(filter) {
     currentFilter = filter;
+    var emptyState = document.getElementById('empty-state');
+
+    if (filter === 'saved') {
+      ['deep-block', 'skim-block', 'noted-block'].forEach(function (id) {
+        document.getElementById(id).style.display = 'none';
+      });
+      renderSavedView();
+      return;
+    }
+
+    document.getElementById('saved-block').style.display = 'none';
+
     var anyVisible = false;
-    allTopicNodes().forEach(function (node) {
-      var match = nodeMatchesFilter(node, filter);
+    document.querySelectorAll('[data-topic]').forEach(function (node) {
+      var topic = node.getAttribute('data-topic');
+      var match = filter === 'all' ||
+        (filter === 'ai' && topic === 'ai') ||
+        (filter === 'telecom' && TELECOM_TAGS.indexOf(topic) !== -1);
       node.style.display = match ? '' : 'none';
       if (match) anyVisible = true;
     });
 
-    // hide section headers / blocks if nothing inside them is visible
     ['deep-block', 'skim-block', 'noted-block'].forEach(function (blockId) {
       var block = document.getElementById(blockId);
       var visibleChildren = block.querySelectorAll('[data-topic]:not([style*="display: none"])');
       block.style.display = visibleChildren.length ? '' : 'none';
     });
 
-    document.getElementById('empty-state').style.display = anyVisible ? 'none' : 'block';
+    emptyState.textContent = 'Nothing here yet.';
+    emptyState.style.display = anyVisible ? 'none' : 'block';
   }
 
   var pills = document.querySelectorAll('.pill');
@@ -446,23 +563,22 @@
   });
 
   function updateCounts() {
-    var nodes = allTopicNodes();
-    var total = nodes.length;
-    var ai = 0, telecom = 0, savedCount = 0;
+    var nodes = document.querySelectorAll('[data-topic]');
+    var total = nodes.length, ai = 0, telecom = 0;
     nodes.forEach(function (node) {
       var topic = node.getAttribute('data-topic');
       if (topic === 'ai') ai++;
       if (TELECOM_TAGS.indexOf(topic) !== -1) telecom++;
-      var starBtn = node.querySelector ? node.querySelector('.star-btn') : null;
-      if (starBtn && isSaved(starBtn.getAttribute('data-id'))) savedCount++;
     });
     document.getElementById('count-all').textContent = '(' + total + ')';
     document.getElementById('count-telecom').textContent = '(' + telecom + ')';
     document.getElementById('count-ai').textContent = '(' + ai + ')';
-    document.getElementById('count-saved').textContent = '(' + savedCount + ')';
+    document.getElementById('count-saved').textContent = '(' + saved.length + ')';
   }
 
   updateCounts();
   applyFilter('all');
 })();
 </script>
+</body>
+</html>
