@@ -433,6 +433,83 @@
       "url": "https://www.channeldive.com/news/hundreds-agents-rogue-lead-up-hugging-face-breach/829006/",
       "headline": "Hundreds of agents went rogue in lead up to Hugging Face breach",
       "tier": "noted"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "gamma-epiris-takeover",
+      "url": "https://uctoday.com/gamma-communications-agrees-1-08bn-takeover-by-epiris",
+      "headline": "Epiris takes Gamma Communications private in a 1.08 billion pound deal",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "att-charter-fiber-powered-suit",
+      "url": "https://lightreading.com/broadband/at-t-goes-to-the-mat-over-charter-s-use-of-fiber-powered-label-for-hfc",
+      "headline": "AT&T sues Charter over the word fiber in its bundle marketing",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "optimum-tmobile-five-year",
+      "url": "https://www.telecompetitor.com/optimum-t-mobile-ink-five-year-deal/",
+      "headline": "Optimum locks in five more years of T-Mobiles network",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "telarus-tech-trends-84pct",
+      "url": "https://www.channeldive.com/news/it-teams-chase-discounts-rip-and-replace-vendors-telarus-tech-trends-report/829365/",
+      "headline": "Telarus data: 84 percent of IT buyers ready to walk at renewal",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "tcsp-advisor-ethics-code",
+      "url": "https://www.channeldive.com/news/tech-advisors-tcsp-atc-police-themselves-before-the-fcc-does/829222/",
+      "headline": "Tech advisors draft their own ethics code ahead of an FCC rulemaking",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "barracuda-msp-reseller-merge",
+      "url": "https://www.channeldive.com/news/barracuda-merges-msp-reseller-tracks-hybrid-partners-grow-michelle-hodges/829000/",
+      "headline": "Barracuda stops forcing partners to pick MSP or reseller",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "genesys-agentic-orchestration",
+      "url": "https://www.nojitter.com/ai-automation/genesys-launches-agentic-orchestration-features",
+      "headline": "Genesys adds a governance layer to its contact center AI agents",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "gartner-ai-budget-surge",
+      "url": "https://www.cxtoday.com/ai-automation-in-cx/gartner-warns-cx-ai-budgets-are-surging/",
+      "headline": "Gartner: AI spending is eating the rest of the service budget",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "ccg-insightforge-launch",
+      "url": "https://www.channeldive.com/news/tech-advisor-launches-platform-guide-enterprise-buyers-through-committee-cloud-communications-group/828889/",
+      "headline": "Cloud Communications Group launches InsightForge",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "echostar-fcc-trust-draw",
+      "url": "https://broadbandbreakfast.com/echostar-says-subsidiaries-should-be-able-to-draw-on-fcc-trust/",
+      "headline": "EchoStar says subsidiaries should be able to draw on FCC trust",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-03",
+      "slug": "anthropic-zero-data-retention",
+      "url": "https://www.cxtoday.com/security-privacy-compliance/anthropic-zero-data-retention-enterprise-ai/",
+      "headline": "Anthropic drops data retention requirement after enterprise pushback",
+      "tier": "noted"
     }
   ]
 }
