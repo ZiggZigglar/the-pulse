@@ -1,69 +1,6 @@
 {
   "entries": [
     {
-      "date": "2026-08-21",
-      "slug": "charter-cox-merger-closes",
-      "url": "https://www.telecompetitor.com/charter-and-cox-complete-merger/",
-      "headline": "Charter and Cox close the merger, and Spectrum is now everywhere",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "tmobile-salt-typhoon-cable-cut",
-      "url": "https://techcrunch.com/2026/08/19/t-mobile-chopped-a-cable-to-expel-chinese-hackers-from-its-network/",
-      "headline": "T-Mobile physically cut a cable to kick Chinese hackers off its network",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "sparklight-unified-communications",
-      "url": "https://www.telecompetitor.com/sparklight-business-announces-unified-cloud-platform/",
-      "headline": "Sparklight jumps into UCaaS with its own unified comms platform",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "agentforce-partner-revenue",
-      "url": "https://www.theregister.com/saas/2026/08/21/salesforce_partners_not_seeing_meaningful_revenue_from_agentforce_ai_platform_report_says/5291167",
-      "headline": "Salesforce partners still aren't making money off Agentforce",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "optimum-advanced-security",
-      "url": "https://www.telecompetitor.com/americans-will-pay-for-additional-security-and-optimum-is-planning-on-it/",
-      "headline": "Optimum bets 5 dollars a month buys customer loyalty",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "krisp-8x8-partner-ecosystem",
-      "url": "https://finance.yahoo.com/technology/ai/articles/krisp-joins-8x8-technology-partner-130000294.html",
-      "headline": "8x8 bolts Krisp's noise cancelling AI onto Work and Contact Center",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "pilot-fiber-extenet-acquisition",
-      "url": "https://www.telecompetitor.com/pilot-fiber-completes-acquisition-of-extenet-systems-enterprise-fiber-business/",
-      "headline": "Pilot Fiber completes acquisition of Extenet Systems' enterprise fiber business",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "usf-modernization-task-force",
-      "url": "https://www.telecompetitor.com/task-force-asks-congress-to-modernize-usf-keep-its-funding-structure/",
-      "headline": "Task force asks Congress to modernize USF, keep its funding structure",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-21",
-      "slug": "spacex-ast-spectrum-bid",
-      "url": "https://www.telecompetitor.com/spacex-and-ast-spacemobile-eye-6b-in-satellite-spectrum-bloomberg/",
-      "headline": "SpaceX and AST SpaceMobile eye 6B in satellite spectrum",
-      "tier": "noted"
-    },
-    {
       "date": "2026-08-22",
       "slug": "tpx-bankruptcy-auction-cancelled",
       "url": "https://www.channeldive.com/news/tpx-cancels-bankruptcy-auction-with-no-qualified-bids/827952/",
@@ -509,6 +446,83 @@
       "slug": "anthropic-zero-data-retention",
       "url": "https://www.cxtoday.com/security-privacy-compliance/anthropic-zero-data-retention-enterprise-ai/",
       "headline": "Anthropic drops data retention requirement after enterprise pushback",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "tpx-bankruptcy-plan",
+      "url": "https://www.channeldive.com/news/chapter-11-bankruptcy-plan-approved-tpx-plans-new-investments-shaun-andrews/829716/",
+      "headline": "TPx Erases $1.1 Billion in Debt and Points the Savings at Partner Tools",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "grain-rightfiber-merger",
+      "url": "https://www.telecompetitor.com/grain-management-completes-strategic-combination-forming-rightfiber/",
+      "headline": "Grain Management Merges Two Century-Old Carriers Into a 28,000-Mile Fiber Platform",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "fcc-robocall-scorecard",
+      "url": "https://www.telecompetitor.com/fcc-seeks-comment-on-robocall-scorecard-cuts-off-violating-providers/",
+      "headline": "FCC Floats a Robocall Scorecard, Cuts 14 Providers Off the Network",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "tds-array-bid-withdrawn",
+      "url": "https://broadbandbreakfast.com/tds-withdraws-bid-to-acquire-array/",
+      "headline": "TDS Walks Away From Its Own Buyout Offer for Array",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "cato-smb-flexpool",
+      "url": "https://www.channeldive.com/news/cato-launches-pooled-licensing-msps-handling-small-business-customers-smb-flexpool-soderlund/829494/",
+      "headline": "Cato Rebuilds MSP Licensing Around Volume, Not Per-Seat Haggling",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "zoom-q2-earnings",
+      "url": "https://www.nojitter.com/digital-workplace/zoom-q2-2027-earnings-driven-by-enterprise-revenue-growth",
+      "headline": "Zoom Phone Is Quietly Pulling Contact Center Deals Behind It",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "sonicwall-critical-vuln",
+      "url": "https://www.channeldive.com/news/sonicwall-immediate-patching-chained-vulnerabilities/829603/",
+      "headline": "SonicWall's Max-Severity Bug Is Already Being Exploited",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "phonely-alma-voice-ai",
+      "url": "https://www.nojitter.com/ai-automation/phonely-debuts-alma-a-voice-ai-centric-llm",
+      "headline": "A Voice-Specific AI Model Claims It Beats OpenAI on Speed and Price",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "att-otel-2",
+      "url": "https://rcrwireless.com/20260828/ai/att-otel-2-0-production",
+      "headline": "AT&T Takes OTel 2.0 Into Production",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "kyndryl-broadcom-vmware",
+      "url": "https://www.channeldive.com/news/kyndryl-broadcom-bet-on-vmware-skills-private-cloud/829549/",
+      "headline": "Kyndryl, Broadcom Bet on VMware Skills as Private Cloud Demand Returns",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-05",
+      "slug": "fcc-rural-innovation-zones",
+      "url": "https://broadbandbreakfast.com/fcc-opens-rural-innovation-zones-to-speed-up-5g-and-ag-tech-testing/",
+      "headline": "FCC Opens Rural Innovation Zones to Speed Up 5G and Ag-Tech Testing",
       "tier": "noted"
     }
   ]
