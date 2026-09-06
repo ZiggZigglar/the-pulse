@@ -1,62 +1,6 @@
 {
   "entries": [
     {
-      "date": "2026-08-22",
-      "slug": "tpx-bankruptcy-auction-cancelled",
-      "url": "https://www.channeldive.com/news/tpx-cancels-bankruptcy-auction-with-no-qualified-bids/827952/",
-      "headline": "TPx cancels its bankruptcy auction after nobody wanted to buy it",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-22",
-      "slug": "ringcentral-shinyhunters-breach-dump",
-      "url": "https://www.theregister.com/cyber-crime/2026/08/14/16m-ringcentral-accounts-data-dumped-after-shinyhunters-extortion-attack/5288003",
-      "headline": "RingCentral's breach data lands in Have I Been Pwned, 1.6 million records",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-22",
-      "slug": "scansource-microage-acquisition",
-      "url": "https://www.channeldive.com/news/scansource-to-buy-microage-mike-baur-220-million-convergence-ctpros/828442/",
-      "headline": "ScanSource buys MicroAge for 220.5 million",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-22",
-      "slug": "brinztech-sip-telephony-telegram",
-      "url": "https://www.brinztech.com/breach-alerts/brinztech-alert-threat-actor-offers-unauthorized-access-to-us-based-sip-telephony-infrastructure-on-telegram",
-      "headline": "Threat actor sells live access to a US business phone system on Telegram",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-22",
-      "slug": "salesforce-headless-360-mcp",
-      "url": "https://siliconangle.com/2026/08/19/salesforce-expands-headless-data-360-mcp-developers-can-bring-insights-agents/",
-      "headline": "Salesforce opens Agentforce's plumbing with Headless 360 MCP servers",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-22",
-      "slug": "vonage-ceo-transition",
-      "url": "https://www.stocktitan.net/news/ERIC/ericsson-announces-change-to-the-executive-e6yr2u259tgh.html",
-      "headline": "Ericsson's Vonage CEO handover completes as Heuveldop steps down",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-22",
-      "slug": "msp-acquisitions-surge-omdia",
-      "url": "https://www.channeldive.com/news/channel-acquistions-consolidation-managed-services-omdia/828297/",
-      "headline": "MSP acquisitions up 73 percent year over year in Q1 2026",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-22",
-      "slug": "ransomware-mid-market-black-kite",
-      "url": "https://www.channeldive.com/news/ransomware-mid-market-firms-black-kite/828302/",
-      "headline": "Ransomware disproportionately hits mid-market firms, per Black Kite",
-      "tier": "noted"
-    },
-    {
       "date": "2026-08-23",
       "slug": "zoom-webex-q2-earnings-divergence",
       "url": "https://www.uctoday.com/zoom-guides-lower-for-q2-as-webex-posts-best-ever-quarter",
@@ -523,6 +467,69 @@
       "slug": "fcc-rural-innovation-zones",
       "url": "https://broadbandbreakfast.com/fcc-opens-rural-innovation-zones-to-speed-up-5g-and-ag-tech-testing/",
       "headline": "FCC Opens Rural Innovation Zones to Speed Up 5G and Ag-Tech Testing",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "gamma-epiris-takeover",
+      "url": "https://www.uctoday.com/gamma-communications-agrees-1-08bn-takeover-by-epiris",
+      "headline": "Epiris Takes Gamma Communications Private in a £1.08 Billion Deal",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "microsoft-csp-land-grab",
+      "url": "https://www.channeldive.com/news/microsoft-cloud-solution-provider-partners-onyx/829145/",
+      "headline": "Microsoft Just Opened the Enterprise Licensing Vault to Every MSP",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "cisco-ios-xr-bugs",
+      "url": "https://www.theregister.com/security/2026/09/04/cisco-searched-for-ios-xr-bugs-and-found-so-many-it-rolled-them-into-an-update-release/5294410",
+      "headline": "Cisco Finds a Pile of Critical Bugs in Its Own Carrier Gear",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "claudeforce-salesforce-anthropic",
+      "url": "https://www.nojitter.com/ai-automation/claudeforce-strategic-partnership-or-structural-surrender",
+      "headline": "Salesforce Just Handed Its Front Door to Anthropic",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "openai-astra-cyber",
+      "url": "https://www.uctoday.com/openais-astra-release-changes-more-than-ai-capabilities",
+      "headline": "OpenAI's Newest Model Can Find and Use Zero Days on Its Own",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "vodafonethree-supermobile-slicing",
+      "url": "https://rcrwireless.com/20260903/5g/vodafonethree-tiered-5g-sa-slicing-enterprises-critical-services",
+      "headline": "VodafoneThree launches tiered 5G SA slicing portfolio",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "hamburg-private-5g-dt-ericsson",
+      "url": "https://rcrwireless.com/20260904/private-5g/private-5g-hamburg-deutsche-telekom-ericsson",
+      "headline": "Deutsche Telekom and Ericsson private 5G at Port of Hamburg",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "gao-broadband-oversight-report",
+      "url": "https://www.lightreading.com/broadband/gao-issues-broadband-program-to-dos-for-fcc-ntia",
+      "headline": "GAO issues broadband program to-dos for FCC, NTIA",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-06",
+      "slug": "fcc-trusty-four-principles",
+      "url": "https://broadbandbreakfast.com/fcc-commissioner-trusty-outlines-four-principles-for-communications-policy/",
+      "headline": "FCC Commissioner Trusty outlines four principles for communications policy",
       "tier": "noted"
     }
   ]
