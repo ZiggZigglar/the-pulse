@@ -1,97 +1,6 @@
 {
   "entries": [
     {
-      "date": "2026-08-23",
-      "slug": "zoom-webex-q2-earnings-divergence",
-      "url": "https://www.uctoday.com/zoom-guides-lower-for-q2-as-webex-posts-best-ever-quarter",
-      "headline": "Zoom guides down for Q2, Webex just had its best quarter in seven years",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "otter-ai-bipa-ruling",
-      "url": "https://www.uctoday.com/otter-ai-fails-to-dismiss-core-privacy-claims-in-u-s-court",
-      "headline": "Otter.ai loses its bid to dismiss the core claims over recording your meetings",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "copper-sunset-fcc-approvals",
-      "url": "https://broadbandbreakfast.com/isps-want-to-continue-to-discontinue-copper-service/",
-      "headline": "Copper sunset keeps accelerating, and the FCC keeps saying yes",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "gartner-ai-cx-roi-gap",
-      "url": "https://www.nojitter.com/customer-experience/untitled",
-      "headline": "Gartner: only one in four AI customer service deployments actually pays off",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "goto-cx-complete-bundle",
-      "url": "https://www.uctoday.com/goto-cx-complete-and-100-evaluation",
-      "headline": "GoTo folds contact center into UC as one AI-priced SMB bundle",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "telarus-back-office-overhaul",
-      "url": "https://www.channeldive.com/news/telarus-eases-back-office-processes-expands-software-integration-c3/828070/",
-      "headline": "Telarus rebuilds its back office and puts a number on the pain it fixed",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "modero-socium-ta-platform",
-      "url": "https://www.channeldive.com/news/modero-pitches-socium-tech-advisor-platform-built-tas/828202/",
-      "headline": "A TA-built platform wants to run other agencies' back offices too",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "hcltech-telecom-ai-gap",
-      "url": "https://rcrwireless.com/20260819/ai/hcltech-pulse-survey-telecom-ai",
-      "headline": "Telecom AI ambition is 35 points ahead of what carriers can actually ship",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "google-spirit-airlines-teams-data",
-      "url": "https://www.uctoday.com/google-buys-teams-data-what-if-your-company-folds",
-      "headline": "Google buys defunct Spirit Airlines' Microsoft Teams data archive",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "talktalk-aro-uk-merger",
-      "url": "https://www.theregister.com/channel/2026/08/14/talktalk-business-and-aro-to-borg-into-uk-tech-services-giant/5287825",
-      "headline": "TalkTalk Business and ARO merge into a UK tech services provider",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "paloalto-ntt-data-security-pact",
-      "url": "https://www.channeldive.com/news/palo-alto-networks-ntt-data-1-billion-security-partnership/828431/",
-      "headline": "Palo Alto Networks and NTT Data ink a 1 billion dollar security alliance",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "wispr-280m-raise",
-      "url": "https://www.uctoday.com/wispr-raises-280m-to-expand-voice-ai-beyond-dictation",
-      "headline": "Wispr raises 280 million to expand voice AI beyond dictation",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-23",
-      "slug": "stripe-openrouter-anthropic-decart",
-      "url": "https://www.cxtoday.com/crm/big-cx-news-from-salesforce-stripe-openai-anthropic/",
-      "headline": "Stripe reportedly buys OpenRouter, Anthropic reportedly in talks for Decart",
-      "tier": "noted"
-    },
-    {
       "date": "2026-08-24",
       "slug": "verizon-channel-chief-humana",
       "url": "https://www.channeldive.com/news/verizon-channel-chief-leaves-for-health-insurer-humana/827474/",
@@ -530,6 +439,69 @@
       "slug": "fcc-trusty-four-principles",
       "url": "https://broadbandbreakfast.com/fcc-commissioner-trusty-outlines-four-principles-for-communications-policy/",
       "headline": "FCC Commissioner Trusty outlines four principles for communications policy",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "nvidia-hugging-face-13b",
+      "url": "https://broadbandbreakfast.com/nvidia-confirms-it-will-spend-13-billion-on-hugging-face-ai-software-platform/",
+      "headline": "Nvidia Writes a $13 Billion Check for the Internet AI Model Library",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "verint-contact-center-ai-2026",
+      "url": "https://www.cxtoday.com/ai-automation-in-cx/verint-warns-ai-value-needs-better-data/",
+      "headline": "Verint New Numbers Say Contact Center AI Is Working, Mostly",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "iqor-insights-iq-math",
+      "url": "https://www.cxtoday.com/customer-analytics-intelligence/iqor-insights-iq/",
+      "headline": "iQor Says Its AI Platform Drives Revenue. The Math Doesnt Quite Add Up",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "genai-roi-six-stats",
+      "url": "https://nojitter.com/ai-automation/6-stats-hint-at-positive-roi-for-gen-ai",
+      "headline": "The Gen AI ROI Numbers Contact Centers Are Actually Reporting",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "idc-agentic-ai-risk",
+      "url": "https://nojitter.com/ai-automation/idc-organizations-should-be-aware-agentic-ai-risks",
+      "headline": "IDC warns on agentic AI governance risk",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "ai-troubleshooting-20-days",
+      "url": "https://uctoday.com/workers-losing-20-days-to-ai-troubleshooting-report-finds",
+      "headline": "BambooHR study: 20 lost workdays a year to AI troubleshooting",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "ciena-backlog-10b",
+      "url": "https://www.lightreading.com/finance/ciena-expects-supply-issues-will-push-backlog-past-10b-by-year-s-end",
+      "headline": "Ciena backlog to top $10 billion on supply constraints",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "cx-budget-planning-broken",
+      "url": "https://www.channeldive.com/news/why-cx-budget-planning-broken-how-to-fix-it-2027/829364/",
+      "headline": "CX budget planning skews tech over people, Channel Dive analysis finds",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-07",
+      "slug": "monte-carlo-agent-trust",
+      "url": "https://www.cxtoday.com/crm/monte-carlo-agent-trust-platform/",
+      "headline": "Monte Carlo launches Agent Trust Platform for AI agent governance",
       "tier": "noted"
     }
   ]
