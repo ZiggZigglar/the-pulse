@@ -1,76 +1,6 @@
 {
   "entries": [
     {
-      "date": "2026-08-24",
-      "slug": "verizon-channel-chief-humana",
-      "url": "https://www.channeldive.com/news/verizon-channel-chief-leaves-for-health-insurer-humana/827474/",
-      "headline": "Verizon's channel chief bolts for a health insurer, and partners are already nervous",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "ai-identity-fraud-surge",
-      "url": "https://www.cxtoday.com/security-privacy-compliance/ai-identity-fraud-interest-increases-almost-4000-as-fake-ids-become-easier-to-create/",
-      "headline": "Fake IDs made by AI are now a five-dollar problem, and search interest is up 3,800 percent",
-      "tier": "deep"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "sfr-cyberattack-fiber-tool",
-      "url": "https://www.lightreading.com/security/eurobites-france-s-sfr-falls-prey-to-cyberattack-report",
-      "headline": "France's SFR gets hit, customer data walks out through a fiber management tool",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "openai-private-safety-processing",
-      "url": "https://www.cxtoday.com/security-privacy-compliance/openai-wants-enterprises-to-trust-its-frontier-models-with-sensitive-customer-data/",
-      "headline": "OpenAI tries to make enterprises comfortable handing over sensitive data",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "data-center-capex-3trillion-2030",
-      "url": "https://www.lightreading.com/ai-machine-learning/ai-buildout-maintains-momentum-as-data-center-capex-surpasses-3t-by-2030-dell-oro",
-      "headline": "Data center spending is on pace to blow past three trillion dollars by 2030",
-      "tier": "skim"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "charter-cox-spectrum-brand-transition",
-      "url": "https://www.lightreading.com/cable-technology/charter-cox-deal-is-a-wrap-with-spectrum-brand-to-take-over-within-a-year",
-      "headline": "Spectrum's brand takes over Cox's footprint by mid-September",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "lumen-voice-exit-no-end-date",
-      "url": "https://www.channeldive.com/news/lumen-execs-defend-voice-exit-copper-q2/827269/",
-      "headline": "Lumen still won't commit to an end-of-life date for voice",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "avepoint-msp-channel-arr-growth",
-      "url": "https://www.channeldive.com/news/avepoint-managed-services-platform-smb-growth/827343/",
-      "headline": "AvePoint's MSP channel delivers record net-new ARR",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "lumen-east-west-ai-fiber-bet",
-      "url": "https://rcrwireless.com/20260814/network-infrastructure/lumen-east-west-ai-edge-north-south-in-play",
-      "headline": "Lumen bets its fiber network on east-west AI traffic",
-      "tier": "noted"
-    },
-    {
-      "date": "2026-08-24",
-      "slug": "fcc-att-duke-pole-arbitration",
-      "url": "https://broadbandbreakfast.com/fcc-wont-hear-at-t-duke-pole-case-right-away/",
-      "headline": "FCC punts AT&T-Duke Energy pole attachment fight to arbitration",
-      "tier": "noted"
-    },
-    {
       "date": "2026-08-28",
       "slug": "claudeforce-salesforce-anthropic",
       "url": "https://www.nojitter.com/ai-automation/salesforce-q2-revenue-jumps-11-percent-launches-claudeforce",
@@ -502,6 +432,69 @@
       "slug": "monte-carlo-agent-trust",
       "url": "https://www.cxtoday.com/crm/monte-carlo-agent-trust-platform/",
       "headline": "Monte Carlo launches Agent Trust Platform for AI agent governance",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "otter-ai-privacy-case",
+      "url": "https://uctoday.com/otter-ai-privacy-case-tests-ai-meeting-data-ambitions",
+      "headline": "A Federal Judge Just Let the Otter.ai Privacy Case Move Forward",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "nokia-bell-labs-cuts",
+      "url": "https://www.lightreading.com/business-transformation/nokia-plans-sweeping-bell-labs-cuts-to-alarm-of-ex-president",
+      "headline": "Nokia Guts Bell Labs Research Staff by Nearly Half, Bets Big on Nvidia",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "zoom-ai-inbox-agent",
+      "url": "https://uctoday.com/zooms-new-ai-tools-target-post-holiday-inbox-anxiety",
+      "headline": "Zoom's New AI Agent Triages Your Inbox While You're Out",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "ujet-ai-adoption-warning",
+      "url": "https://www.cxtoday.com/ai-automation-in-cx/ujet-says-contact-center-ai-adoption-is-moving-too-fast-which-creates-new-risks-ujet-cs-0190/",
+      "headline": "UJET's Warning to Contact Centers Rushing AI: Slow Down",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "bead-all-56-approved",
+      "url": "https://broadbandbreakfast.com/all-56-federal-broadband-plans-approved-construction-comes-next/",
+      "headline": "All 56 Federal Broadband Plans Approved, Construction Comes Next",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "rural-isps-high-cost-fcc",
+      "url": "https://broadbandbreakfast.com/rural-isps-to-fcc-preserve-rural-broadband-subsidy/",
+      "headline": "Rural ISPs to FCC: Preserve Rural Broadband Subsidy",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "minnesota-permit-challenge",
+      "url": "https://broadbandbreakfast.com/industry-backs-isp-challenge-to-minnesota-city-permit-rules/",
+      "headline": "Industry Backs ISP Challenge to Minnesota City Permit Rules",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "idc-agentic-ai-risk",
+      "url": "https://www.nojitter.com/ai-automation/idc-organizations-should-be-aware-agentic-ai-risks",
+      "headline": "IDC: Organizations Should Be Aware of Agentic AI Risks",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-08",
+      "slug": "genesys-xperience-ga-dates",
+      "url": "https://www.cxtoday.com/ai-automation-in-cx/genesys-ai-control-plane-xperience-2026/",
+      "headline": "Genesys Unveils AI Control Plane and Agentic Orchestration Stack at Xperience 2026",
       "tier": "noted"
     }
   ]
