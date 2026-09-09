@@ -496,6 +496,62 @@
       "url": "https://www.cxtoday.com/ai-automation-in-cx/genesys-ai-control-plane-xperience-2026/",
       "headline": "Genesys Unveils AI Control Plane and Agentic Orchestration Stack at Xperience 2026",
       "tier": "noted"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "gpt6-astra-cyber-threshold",
+      "url": "https://uctoday.com/openais-astra-release-changes-more-than-ai-capabilities",
+      "headline": "OpenAI's GPT-6 Astra Clears Its Own Cyber Threshold, and the Internet Noticed",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "cisco-ios-xr-nexus-bugs",
+      "url": "https://www.theregister.com/security/2026/09/04/cisco-searched-for-ios-xr-bugs-and-found-so-many-it-rolled-them-into-an-update-release/5294410",
+      "headline": "Cisco's Router and Switch Bug Haul Lands on Carrier-Grade Gear",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "zoom-phone-earnings-pull-through",
+      "url": "https://nojitter.com/digital-workplace/zoom-q2-2027-earnings-driven-by-enterprise-revenue-growth",
+      "headline": "Zoom Phone Is Quietly Zoom's Best Salesperson",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "fcc-rip-replace-loan-repaid",
+      "url": "https://broadbandbreakfast.com/fcc-returns-3-08-billion-to-treasury-after-spectrum-auction-pays-off-rip-and-replace-loan/",
+      "headline": "FCC Pays Off Its Rip and Replace Loan Early, Off the Back of a Spectrum Auction",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "bead-cleanup-round-course-correction",
+      "url": "https://broadbandbreakfast.com/fba-benton-pleased-by-new-bead-round-electric-co-ops-want-course-correction/",
+      "headline": "FBA, Benton Pleased By New BEAD Round, Electric Co-ops Want Course Correction",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "huawei-racketeering-trial-ny",
+      "url": "https://broadbandbreakfast.com/chinas-huawei-technologies-faces-racketeering-trial-in-new-york/",
+      "headline": "China's Huawei Technologies Faces Racketeering Trial in New York",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "verizon-corning-fiber-deal",
+      "url": "https://www.lightreading.com/data-centers/verizon-loads-up-on-corning-s-fiber-for-network-expansion-and-ai-infrastructure",
+      "headline": "Verizon Loads Up on Corning's Fiber for Network Expansion and AI Infrastructure",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "dt-tmobile-ai-talent-poach",
+      "url": "https://rcrwireless.com/20260908/carriers/deutsche-telekom-t-mobile-poach-from-aws-ge-vernova-ai-talent-loop",
+      "headline": "Deutsche Telekom and T-Mobile Poach from AWS, GE Vernova as AI Talent Loop Widens",
+      "tier": "noted"
     }
   ]
 }
