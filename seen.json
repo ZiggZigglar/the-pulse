@@ -552,6 +552,83 @@
       "url": "https://rcrwireless.com/20260908/carriers/deutsche-telekom-t-mobile-poach-from-aws-ge-vernova-ai-talent-loop",
       "headline": "Deutsche Telekom and T-Mobile Poach from AWS, GE Vernova as AI Talent Loop Widens",
       "tier": "noted"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "att-business-amazon-leo-satellite",
+      "url": "https://www.telecompetitor.com/att-business-and-amazon-leo-form-strategic-partnership/",
+      "headline": "AT&T Business and Amazon Leo form strategic partnership",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "clearwave-visionary-broadband-merger",
+      "url": "https://www.telecompetitor.com/clearwave-and-visionary-broadband-to-combine-serving-700k-addresses-in-17-states/",
+      "headline": "Clearwave and Visionary Broadband to combine, serving 700K addresses in 17 states",
+      "tier": "deep"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "harmonic-sensai-broadband-ai",
+      "url": "https://www.telecompetitor.com/harmonic-debuts-sensai-for-broadband-network-operations/",
+      "headline": "Harmonic debuts SensAI for broadband network operations",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "voice-contact-center-ai-infrastructure",
+      "url": "https://www.nojitter.com/contact-centers/where-voice-as-a-contact-center-channel-is-headed-in-an-ai-world",
+      "headline": "Where voice as a contact center channel is headed in an AI world",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "n-able-ncentral-critical-vulnerability",
+      "url": "https://www.channeldive.com/news/n-able-rmm-platform-vulnerability-patch-huntress/829836/",
+      "headline": "N-able alerts MSPs to critical platform vulnerabilities",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "cyberfox-ingram-micro-distribution",
+      "url": "https://www.channeldive.com/news/cyberfox-partners-with-ingram-micro-to-scale-beyond-msp-market/829848/",
+      "headline": "CyberFOX partners with Ingram Micro to scale beyond MSP market",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "strand-consult-leo-satellite-limits",
+      "url": "https://broadbandbreakfast.com/strand-consult-says-leo-satellites-will-complement-not-replace-mobile-networks/",
+      "headline": "Strand Consult says LEO satellites will complement, not replace, mobile networks",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "fcc-september-meeting-permitting-spectrum",
+      "url": "https://www.lightreading.com/satellite/fcc-sizes-up-spectrum-for-satellite-broadband-ai-sensing",
+      "headline": "FCC sizes up spectrum for satellite broadband, AI sensing",
+      "tier": "skim"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "atis-6g-spectrum-blueprint",
+      "url": "https://www.lightreading.com/6g/atis-presents-blueprint-for-6g-spectrum-requirements",
+      "headline": "ATIS presents blueprint for 6G spectrum requirements",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "exabeam-google-cloud-security-partner",
+      "url": "https://www.channeldive.com/news/exabeam-joins-crowdstrike-wiz-patterson-google-cloud-security-partner-group/829834/",
+      "headline": "Exabeam joins CrowdStrike, Wiz in Google Cloud security partner group",
+      "tier": "noted"
+    },
+    {
+      "date": "2026-09-10",
+      "slug": "bead-eligible-locations-gap",
+      "url": "https://broadbandbreakfast.com/about-1-million-bead-eligible-locations-remain-researchers-say/",
+      "headline": "About 1 Million BEAD-Eligible Locations Remain, Researchers Say",
+      "tier": "noted"
     }
   ]
 }
